@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title_manual: MyText
+  title_scraped: MyText
+  raw_url: MyString
+  clean_url: MyString
+  description: MyText
+  keywords_manual: MyText
+  keywords_scraped: MyText
+  user_id: 1
+
+two:
+  title_manual: MyText
+  title_scraped: MyText
+  raw_url: MyString
+  clean_url: MyString
+  description: MyText
+  keywords_manual: MyText
+  keywords_scraped: MyText
+  user_id: 1

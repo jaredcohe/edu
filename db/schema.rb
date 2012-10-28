@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(:version => 20121028180957) do
     t.text     "title_from_user"
     t.text     "title_from_source"
     t.string   "raw_url"
-    t.string   "clean_url"
     t.text     "description_from_user"
     t.text     "keywords_from_user"
     t.text     "keywords_from_source"

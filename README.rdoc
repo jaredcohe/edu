@@ -108,38 +108,43 @@ invoke  active_record
 create    db/migrate/20121028180957_change_resource.rb
 ==
 .update migration file
+.add new fields to attr_accessible line in resource.rb model
+.made mistake first time, then rake db:rollback so I can add :raw_html and remove :clean_url column, then migrate again
 rake db:migrate
 ==
 ==  ChangeResources: migrating ================================================
 -- add_column(:resources, :description_from_source, :text)
-   -> 0.0192s
--- rename_column(:resources, :title_manual, :title_from_user)
-   -> 0.0446s
--- rename_column(:resources, :title_scraped, :title_from_source)
-   -> 0.0221s
--- rename_column(:resources, :description, :description_from_user)
+   -> 0.0166s
+-- add_column(:resources, :raw_html, :text)
+   -> 0.0133s
+-- remove_column(:resources, :clean_url)
    -> 0.0185s
+-- rename_column(:resources, :title_manual, :title_from_user)
+   -> 0.0441s
+-- rename_column(:resources, :title_scraped, :title_from_source)
+   -> 0.0295s
+-- rename_column(:resources, :description, :description_from_user)
+   -> 0.0186s
 -- rename_column(:resources, :keywords_manual, :keywords_from_user)
-   -> 0.0203s
+   -> 0.0211s
 -- rename_column(:resources, :keywords_scraped, :keywords_from_source)
-   -> 0.0220s
-==  ChangeResources: migrated (0.1584s) =======================================
+   -> 0.0172s
+==  ChangeResources: migrated (0.1863s) =======================================
 ==
 
-add new fields to attr_accessible line in resource.rb model
-rake db:rollback so I can add :raw_html column, then migrate again
 
+xxx
 fix tagging
 http://railscasts.com/episodes/382-tagging
 
 
 
 
-#make user ID in collection a hidden field
-# collection#create work properly, scrape resource
-
 #add ability to create collections by putting in a URL or searching Resources
 http://railscasts.com/episodes/196-nested-model-form-revised
+
+#make user ID in collection a hidden field
+# collection#create work properly, scrape resource
 
 #add search of collections and resources
 http://railscasts.com/episodes/343-full-text-search-in-postgresql

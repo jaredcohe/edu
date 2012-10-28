@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>ID</th>
     <th>Title from user</th>
     <th>Title from source</th>
     <th>Raw url</th>
@@ -17,8 +18,9 @@
 
 <% @resources.each do |resource| %>
   <tr>
+    <td><%= resource.id %></td>
     <td><%= resource.title_from_user %></td>
-    <td><%= resource.title_from_source %></td>
+    <td><%= link_to resource.title_from_source, resource.raw_url, :target => "_blank" %></td>
     <td><%= resource.raw_url %></td>
     <td><%= resource.description_from_user %></td>
     <td><%= resource.description_from_source %></td>

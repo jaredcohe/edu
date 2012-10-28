@@ -1,0 +1,29 @@
+<h1>Sign Up</h1>
+
+<%= form_for @user do |f| %>
+  <%#= hidden_field_tag :destination_controller, @destination_controller || "" %>
+  <%#= hidden_field_tag :destination_action, @destination_action || "" %>
+
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Invalid Entry</h2>
+      <%= @user.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    </div>
+  <% end %>
+  
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p class="button"><%= f.submit %></p>
+<% end %>

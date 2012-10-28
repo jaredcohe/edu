@@ -1,4 +1,5 @@
 class ResourcesController < ApplicationController
+  before_filter :authorize, only: [:edit, :update, :destroy]
 
   # GET /resources
   # GET /resources.json
@@ -50,31 +51,21 @@ class ResourcesController < ApplicationController
     @resource.title_from_source = resource_object[:title_from_source] ? resource_object[:title_from_source] : nil
     @resource.raw_html = resource_object[:raw_html] ? resource_object[:raw_html] : nil
 
-
-    respond_to do |format|
-      if @resource.save
-        format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
-        format.json { render json: @resource, status: :created, location: @resource }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @resource.errors, status: :unprocessable_entity }
-      end
+    if @resource.save
+      redirect_to resources_path, notice: 'Resource was successfully created.'
+    else
+      render action: "new"
     end
   end
 
   # PUT /resources/1
-  # PUT /resources/1.json
   def update
     @resource = Resource.find(params[:id])
 
-    respond_to do |format|
-      if @resource.update_attributes(params[:resource])
-        format.html { redirect_to @resource, notice: 'Resource was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @resource.errors, status: :unprocessable_entity }
-      end
+    if @resource.update_attributes(params[:resource])
+      redirect_to resources_path, notice: 'Resource was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 

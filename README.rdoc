@@ -132,16 +132,72 @@ rake db:migrate
 ==  ChangeResources: migrated (0.1863s) =======================================
 ==
 
+Add authentication
+http://railscasts.com/episodes/250-authentication-from-scratch-revised
+rails g resource user email password_digest
+.a resource generator is different from scaffold generator in that it doesn't create all the controller actions
+==
+invoke  active_record
+create    db/migrate/20121028222628_create_users.rb
+create    app/models/user.rb
+invoke    test_unit
+create      test/unit/user_test.rb
+create      test/fixtures/users.yml
+invoke  controller
+create    app/controllers/users_controller.rb
+invoke    erb
+create      app/views/users
+invoke    test_unit
+create      test/functional/users_controller_test.rb
+invoke    helper
+create      app/helpers/users_helper.rb
+invoke      test_unit
+create        test/unit/helpers/users_helper_test.rb
+invoke    assets
+invoke      js
+create        app/assets/javascripts/users.js
+invoke      scss
+create        app/assets/stylesheets/users.css.scss
+invoke  resource_route
+ route    resources :users
+==
+edit model user.rb
+uncomment bcrypt-ruby gem in gemfile
+edit users_controller.rb
+rails g controller sessions new
+==
+create  app/controllers/sessions_controller.rb
+ route  get "sessions/new"
+invoke  erb
+create    app/views/sessions
+create    app/views/sessions/new.html.erb
+invoke  test_unit
+create    test/functional/sessions_controller_test.rb
+invoke  helper
+create    app/helpers/sessions_helper.rb
+invoke    test_unit
+create      test/unit/helpers/sessions_helper_test.rb
+invoke  assets
+invoke    js
+create      app/assets/javascripts/sessions.js
+invoke    scss
+create      app/assets/stylesheets/sessions.css.scss
+==
+edit routes to add <resources :sessions> and get rid of the get request
+
+
+
+cookies
+http://railscasts.com/episodes/274-remember-me-reset-password
+
+
 
 xxx
-fix tagging
-http://railscasts.com/episodes/382-tagging
-
-
-
-
 #add ability to create collections by putting in a URL or searching Resources
 http://railscasts.com/episodes/196-nested-model-form-revised
+
+fix tagging
+http://railscasts.com/episodes/382-tagging
 
 #make user ID in collection a hidden field
 # collection#create work properly, scrape resource

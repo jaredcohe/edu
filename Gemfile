@@ -24,7 +24,7 @@ gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # railscasts 250 revised
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

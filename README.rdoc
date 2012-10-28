@@ -1,4 +1,139 @@
-rails new edu -d mysql
+create new rails app: rails new edu -d mysql
+
+git
+git init
+= Initialized empty Git repository in /Users/jec1477/Dropbox/code/edu/.git/
+git add .
+git commit -m 'first commit'
+git remote add origin
+= changes /edu/.git file to have origin
+create git repo at github
+git push -u origin master
+
+Create Databases
+rake db:create:all
+may need to edit database.yml file for user and password
+
+Start server
+rails server
+
+Gemfile
+gemfile - ensure it has jquery, sass, and maybe haml, comment coffee gem
+
+Resource Model
+rails g scaffold Resource title_manual:text title_scraped:text raw_url:string clean_url:string description:text keywords_manual:text keywords_scraped:text user_id:integer
+.model name will be singular, table name will be plural
+==
+invoke  active_record
+create    db/migrate/20121028173855_create_resources.rb
+create    app/models/resource.rb
+invoke    test_unit
+create      test/unit/resource_test.rb
+create      test/fixtures/resources.yml
+invoke  resource_route
+ route    resources :resources
+invoke  scaffold_controller
+create    app/controllers/resources_controller.rb
+invoke    erb
+create      app/views/resources
+create      app/views/resources/index.html.erb
+create      app/views/resources/edit.html.erb
+create      app/views/resources/show.html.erb
+create      app/views/resources/new.html.erb
+create      app/views/resources/_form.html.erb
+invoke    test_unit
+create      test/functional/resources_controller_test.rb
+invoke    helper
+create      app/helpers/resources_helper.rb
+invoke      test_unit
+create        test/unit/helpers/resources_helper_test.rb
+invoke  assets
+invoke    js
+create      app/assets/javascripts/resources.js
+invoke    scss
+create      app/assets/stylesheets/resources.css.scss
+invoke  scss
+create    app/assets/stylesheets/scaffolds.css.scss
+==
+
+Routes for root
+.added to routes: root :to => 'resources#index'
+.renamed public/index.html to public/indexOLD.html
+
+- make user model, including authentication and cookies
+.railscast 250
+.rails g controller users new
+.rails g model user email:string password_hash:string password_salt:string
+.rake db:migrate
+.rails g controller sessions new
+- update authentication with revised 250
+- railscasts 270 on additional authentication stuff
+- railscasts 274 on additional authentication stuff, remember me, reset password
+.rails g migration add_auth_token_to_users auth_token:string
+.rails g controller password_resets new
+.rails g migration add_password_reset_to_users password_reset_token:string
+password_reset_sent_at:datetime
+.rails g mailer user_mailer password_reset
+- rake task to add auth tokens, http://railscasts.com/episodes/66-custom-rake-tasks
+- put it on heroku
+.bundle exec rake assets:precompile
+.heroku create
+.git push heroku master
+.heroku rename <name>
+.heroku run rake db:migrate
+.heroku db:push
+- add collection model
+.rails g scaffold Collection user_id:integer, title:string, description:text, keywords:text
+- add collectionize model for join table through
+.rails g model collectionize collection_id:integer resource_id:integer order:integer notes:text
+- change to mysql
+.database.yml change
+.migrate
+.heroku db:pull
+
+Migrate database
+rake db:migrate
+==
+==  CreateResources: migrating ================================================
+-- create_table(:resources)
+   -> 0.0112s
+==  CreateResources: migrated (0.0114s) =======================================
+==
+
+
+
+
+
+#make user ID in collection a hidden field
+# collection#create work properly, scrape resource
+
+#add ability to create collections by putting in a URL or searching Resources
+http://railscasts.com/episodes/196-nested-model-form-revised
+
+#add search of collections and resources
+http://railscasts.com/episodes/343-full-text-search-in-postgresql
+http://railscasts.com/episodes/240-search-sort-paginate-with-ajax
+http://railscasts.com/episodes/111-advanced-search-form-revised
+.search of "r" and "R" should return R programming and not everything with an R
+
+#add reviews of collections and resources
+.user_id, resource_id
+
+#add ability to drag and drop collections
+
+#add link to email that makes the user confirm - "change a field in the database to show the person is confirmed" - end of railscasts 274, that code can be used for this
+
+#remove duplication of URLs
+.use URL and title?
+
+#add todo list
+
+
+
+
+------
+Errors, Problems
+# to fix heroku not seeing css scss files, type this in terminal: RAILS_ENV=production bundle exec rake assets:precompile
 
 
 

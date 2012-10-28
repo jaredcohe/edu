@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title_manual %><br />
-    <%= f.text_area :title_manual %>
+    <%= f.label :title_from_user %><br />
+    <%= f.text_area :title_from_user %>
   </div>
   <div class="field">
-    <%= f.label :title_scraped %><br />
-    <%= f.text_area :title_scraped %>
+    <%= f.label :title_from_source %><br />
+    <%= f.text_area :title_from_source %>
   </div>
   <div class="field">
     <%= f.label :raw_url %><br />
@@ -28,16 +28,20 @@
     <%= f.text_field :clean_url %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :description_from_user %><br />
+    <%= f.text_area :description_from_user %>
   </div>
   <div class="field">
-    <%= f.label :keywords_manual %><br />
-    <%= f.text_area :keywords_manual %>
+    <%= f.label :description_from_source %><br />
+    <%= f.text_area :description_from_source %>
   </div>
   <div class="field">
-    <%= f.label :keywords_scraped %><br />
-    <%= f.text_area :keywords_scraped %>
+    <%= f.label :keywords_from_user %><br />
+    <%= f.text_area :keywords_from_user %>
+  </div>
+  <div class="field">
+    <%= f.label :keywords_from_source %><br />
+    <%= f.text_area :keywords_from_source %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br />

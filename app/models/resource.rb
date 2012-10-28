@@ -1,6 +1,7 @@
 class Resource < ActiveRecord::Base
-  attr_accessible :clean_url, :description, :keywords_manual, :keywords_scraped, :raw_url, :title_manual, :title_scraped, :user_id
-
+  attr_accessible :clean_url, :raw_url, :user_id, :title_from_user, :title_from_source, 
+    :description_from_user, :description_from_source, :keywords_from_user,
+    :keywords_from_source, :raw_html
 
   def self.scrape_data(raw_url)
     p 'running Resource#self.scrape_data in Resource model'
@@ -10,38 +11,38 @@ class Resource < ActiveRecord::Base
     require 'net/http'
     require 'pp'
 
-    resource_scraped = {}
+    resource_from_source = {}
 
     begin
-      resource_scraped[:raw_html] = Net::HTTP.get URI.parse(raw_url)
-      resource_scraped[:html] = Nokogiri::HTML(open(raw_url))
-      resource_scraped[:title_scraped] = resource_scraped[:html].css("title").length > 0 ? resource_scraped[:html].css("title").text : nil
-      if resource_scraped[:html].css("meta[name='description']").length > 0
-        if resource_scraped[:html].css("meta[name='description']").first.attributes['content']
-          resource_scraped[:description_scraped] = resource_scraped[:html].css("meta[name='description']").first.attributes['content'].value
-        elsif resource_scraped[:html].css("meta[name='description']").first.attributes['contents']
-          resource_scraped[:description_scraped] = resource_scraped[:html].css("meta[name='description']").first.attributes['contents'].value
+      resource_from_source[:raw_html] = Net::HTTP.get URI.parse(raw_url)
+      resource_from_source[:html] = Nokogiri::HTML(open(raw_url))
+      resource_from_source[:title_from_source] = resource_from_source[:html].css("title").length > 0 ? resource_from_source[:html].css("title").text : nil
+      if resource_from_source[:html].css("meta[name='description']").length > 0
+        if resource_from_source[:html].css("meta[name='description']").first.attributes['content']
+          resource_from_source[:description_from_source] = resource_from_source[:html].css("meta[name='description']").first.attributes['content'].value
+        elsif resource_from_source[:html].css("meta[name='description']").first.attributes['contents']
+          resource_from_source[:description_from_source] = resource_from_source[:html].css("meta[name='description']").first.attributes['contents'].value
         else
-          resource_scraped[:description_scraped] = nil
+          resource_from_source[:description_from_source] = nil
         end
       end
 
-      if resource_scraped[:html].css("meta[name='keywords']").length > 0
-        if resource_scraped[:html].css("meta[name='keywords']").first.attributes['content']
-          resource_scraped[:keywords_scraped] = resource_scraped[:html].css("meta[name='keywords']").first.attributes['content'].value
-        elsif resource_scraped[:html].css("meta[name='keywords']").first.attributes['contents']
-          resource_scraped[:keywords_scraped] = resource_scraped[:html].css("meta[name='keywords']").first.attributes['contents'].value
+      if resource_from_source[:html].css("meta[name='keywords']").length > 0
+        if resource_from_source[:html].css("meta[name='keywords']").first.attributes['content']
+          resource_from_source[:keywords_from_source] = resource_from_source[:html].css("meta[name='keywords']").first.attributes['content'].value
+        elsif resource_from_source[:html].css("meta[name='keywords']").first.attributes['contents']
+          resource_from_source[:keywords_from_source] = resource_from_source[:html].css("meta[name='keywords']").first.attributes['contents'].value
         else
-          resource_scraped[:keywords_scraped] = nil
+          resource_from_source[:keywords_from_source] = nil
         end
       end
 
-      # resource_scraped[:keywords_scraped] = resource_scraped[:html].css("meta[name='keywords']").length > 0 ? resource_scraped[:html].css("meta[name='keywords']").first.attributes['content'].value : ""
-      resource_scraped[:good_url] = true
+      # resource_from_source[:keywords_from_source] = resource_from_source[:html].css("meta[name='keywords']").length > 0 ? resource_from_source[:html].css("meta[name='keywords']").first.attributes['content'].value : ""
+      resource_from_source[:good_url] = true
     rescue Exception
-      resource_scraped[:good_url] = false
+      resource_from_source[:good_url] = false
     end
-    resource_scraped
+    resource_from_source
   end
 
 end

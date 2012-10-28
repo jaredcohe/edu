@@ -2,13 +2,14 @@
 
 <table>
   <tr>
-    <th>Title manual</th>
-    <th>Title scraped</th>
+    <th>Title from user</th>
+    <th>Title from source</th>
     <th>Raw url</th>
     <th>Clean url</th>
-    <th>Description</th>
-    <th>Keywords manual</th>
-    <th>Keywords scraped</th>
+    <th>Description from user</th>
+    <th>Description from source</th>
+    <th>Keywords from user</th>
+    <th>Keywords from source</th>
     <th>User</th>
     <th></th>
     <th></th>
@@ -17,13 +18,14 @@
 
 <% @resources.each do |resource| %>
   <tr>
-    <td><%= resource.title_manual %></td>
-    <td><%= resource.title_scraped %></td>
+    <td><%= resource.title_from_user %></td>
+    <td><%= resource.title_from_source %></td>
     <td><%= resource.raw_url %></td>
     <td><%= resource.clean_url %></td>
-    <td><%= resource.description %></td>
-    <td><%= resource.keywords_manual %></td>
-    <td><%= resource.keywords_scraped %></td>
+    <td><%= resource.description_from_user %></td>
+    <td><%= resource.description_from_source %></td>
+    <td><%= resource.keywords_from_user %></td>
+    <td><%= resource.keywords_from_source %></td>
     <td><%= resource.user_id %></td>
     <td><%= link_to 'Show', resource %></td>
     <td><%= link_to 'Edit', edit_resource_path(resource) %></td>

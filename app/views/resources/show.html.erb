@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title manual:</b>
-  <%= @resource.title_manual %>
+  <b>Title from user:</b>
+  <%= @resource.title_from_user %>
 </p>
 
 <p>
-  <b>Title scraped:</b>
-  <%= @resource.title_scraped %>
+  <b>Title from source:</b>
+  <%= @resource.title_from_source %>
 </p>
 
 <p>
@@ -21,18 +21,23 @@
 </p>
 
 <p>
-  <b>Description:</b>
-  <%= @resource.description %>
+  <b>Description from user:</b>
+  <%= @resource.description_from_user %>
 </p>
 
 <p>
-  <b>Keywords manual:</b>
-  <%= @resource.keywords_manual %>
+  <b>Description from source:</b>
+  <%= @resource.description_from_source %>
 </p>
 
 <p>
-  <b>Keywords scraped:</b>
-  <%= @resource.keywords_scraped %>
+  <b>Keywords from user:</b>
+  <%= @resource.keywords_from_user %>
+</p>
+
+<p>
+  <b>Keywords from source:</b>
+  <%= @resource.keywords_from_source %>
 </p>
 
 <p>

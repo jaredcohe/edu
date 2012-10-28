@@ -126,9 +126,11 @@ rake db:migrate
 ==  ChangeResources: migrated (0.1584s) =======================================
 ==
 
+add new fields to attr_accessible line in resource.rb model
+rake db:rollback so I can add :raw_html column, then migrate again
 
-
-
+fix tagging
+http://railscasts.com/episodes/382-tagging
 
 
 

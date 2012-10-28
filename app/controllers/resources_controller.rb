@@ -45,9 +45,9 @@ class ResourcesController < ApplicationController
     # try to scrape
     resource_object = Resource.scrape_data(@resource.raw_url)
     # add scraped data or nil
-    @resource.keywords_scraped = resource_object[:keywords_scraped] ? resource_object[:keywords_scraped] : nil
-    @resource.description_scraped = resource_object[:description_scraped] ? resource_object[:description_scraped] : nil
-    @resource.title_scraped = resource_object[:title_scraped] ? resource_object[:title_scraped] : nil
+    @resource.keywords_from_source = resource_object[:keywords_from_source] ? resource_object[:keywords_from_source] : nil
+    @resource.description_from_source = resource_object[:description_from_source] ? resource_object[:description_from_source] : nil
+    @resource.title_from_source = resource_object[:title_from_source] ? resource_object[:title_from_source] : nil
     @resource.raw_html = resource_object[:raw_html] ? resource_object[:raw_html] : nil
 
 

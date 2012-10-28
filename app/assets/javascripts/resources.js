@@ -2,5 +2,5 @@
 // All this logic will automatically be available in application.js.
 
 $(function() {
-  $('form input:text:visible:first').focus();
+  $('#resource_raw_url').focus();
 });

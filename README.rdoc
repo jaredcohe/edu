@@ -18,7 +18,8 @@ Start server
 rails server
 
 Gemfile
-gemfile - ensure it has jquery, sass, and maybe haml, comment coffee gem
+gemfile - ensure it has jquery, sass, and maybe haml, comment coffee gem, added nokogiri, don't need pg
+bundle install
 
 Resource Model
 rails g scaffold Resource title_manual:text title_scraped:text raw_url:string clean_url:string description:text keywords_manual:text keywords_scraped:text user_id:integer
@@ -99,6 +100,34 @@ rake db:migrate
    -> 0.0112s
 ==  CreateResources: migrated (0.0114s) =======================================
 ==
+
+Rename columns from 'scraped' to 'sourced', add 'description_sourced'
+rails g migration ChangeResource
+==
+invoke  active_record
+create    db/migrate/20121028180957_change_resource.rb
+==
+.update migration file
+rake db:migrate
+==
+==  ChangeResources: migrating ================================================
+-- add_column(:resources, :description_from_source, :text)
+   -> 0.0192s
+-- rename_column(:resources, :title_manual, :title_from_user)
+   -> 0.0446s
+-- rename_column(:resources, :title_scraped, :title_from_source)
+   -> 0.0221s
+-- rename_column(:resources, :description, :description_from_user)
+   -> 0.0185s
+-- rename_column(:resources, :keywords_manual, :keywords_from_user)
+   -> 0.0203s
+-- rename_column(:resources, :keywords_scraped, :keywords_from_source)
+   -> 0.0220s
+==  ChangeResources: migrated (0.1584s) =======================================
+==
+
+
+
 
 
 

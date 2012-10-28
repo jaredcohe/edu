@@ -1,4 +1,5 @@
 class ResourcesController < ApplicationController
+
   # GET /resources
   # GET /resources.json
   def index
@@ -37,10 +38,18 @@ class ResourcesController < ApplicationController
     @resource = Resource.find(params[:id])
   end
 
-  # POST /resources
-  # POST /resources.json
   def create
+    p 'running ResourcesController#create'
     @resource = Resource.new(params[:resource])
+
+    # try to scrape
+    resource_object = Resource.scrape_data(@resource.raw_url)
+    # add scraped data or nil
+    @resource.keywords_scraped = resource_object[:keywords_scraped] ? resource_object[:keywords_scraped] : nil
+    @resource.description_scraped = resource_object[:description_scraped] ? resource_object[:description_scraped] : nil
+    @resource.title_scraped = resource_object[:title_scraped] ? resource_object[:title_scraped] : nil
+    @resource.raw_html = resource_object[:raw_html] ? resource_object[:raw_html] : nil
+
 
     respond_to do |format|
       if @resource.save

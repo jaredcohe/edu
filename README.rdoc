@@ -185,10 +185,16 @@ create      app/assets/stylesheets/sessions.css.scss
 ==
 edit routes to add <resources :sessions> and get rid of the get request
 
-
-
 cookies
 http://railscasts.com/episodes/274-remember-me-reset-password
+rails g migration add_auth_token_to_users auth_token:string
+==
+invoke  active_record
+create    db/migrate/20121029123127_add_auth_token_to_users.rb
+==
+rake db:migrate
+
+
 
 
 

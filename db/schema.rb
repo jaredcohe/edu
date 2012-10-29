@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121028222628) do
+ActiveRecord::Schema.define(:version => 20121029123127) do
 
   create_table "resources", :force => true do |t|
     t.text     "title_from_user"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20121028222628) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "auth_token"
   end
 
 end

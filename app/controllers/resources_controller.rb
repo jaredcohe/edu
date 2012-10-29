@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  before_filter :authorize, only: [:edit, :update, :destroy]
+  before_filter :authorize, only: [:edit, :update, :destroy, :new]
 
   # GET /resources
   # GET /resources.json

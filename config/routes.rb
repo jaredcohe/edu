@@ -1,12 +1,14 @@
 Edu::Application.routes.draw do
+  root :to => 'resources#index'
+  get "password_resets/new"
+
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   delete 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :users
   resources :sessions
-
-  root :to => 'resources#index'
+  resources :password_resets
   resources :resources
 
   # The priority is based upon order of creation:

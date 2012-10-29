@@ -197,12 +197,50 @@ edit some files
 
 reset password
 http://railscasts.com/episodes/274-remember-me-reset-password
-
-
+rails g controller password_resets new
+==
+create  app/controllers/password_resets_controller.rb
+ route  get "password_resets/new"
+invoke  erb
+create    app/views/password_resets
+create    app/views/password_resets/new.html.erb
+invoke  test_unit
+create    test/functional/password_resets_controller_test.rb
+invoke  helper
+create    app/helpers/password_resets_helper.rb
+invoke    test_unit
+create      test/unit/helpers/password_resets_helper_test.rb
+invoke  assets
+invoke    js
+create      app/assets/javascripts/password_resets.js
+invoke    scss
+create      app/assets/stylesheets/password_resets.css.scss
+==
+edit model user.rb
+edit password_resets_controller.rb
+rails g migration add_password_reset_to_users password_reset_token:string password_reset_sent_at:datetime
+==
+invoke  active_record
+create    db/migrate/20121029132244_add_password_reset_to_users.rb
+==
+rake db:migrate
+rails g mailer user_mailer password_reset
+==
+create  app/mailers/user_mailer.rb
+invoke  erb
+create    app/views/user_mailer
+create    app/views/user_mailer/password_reset.text.erb
+invoke  test_unit
+create    test/functional/user_mailer_test.rb
+==
+restart the server
+finish editing other files
 
 
 
 xxx
+#add link to email that makes the user confirm - "change a field in the database to show the person is confirmed" - end of railscasts 274, that code can be used for this
+
 #add ability to create collections by putting in a URL or searching Resources
 http://railscasts.com/episodes/196-nested-model-form-revised
 
@@ -222,8 +260,6 @@ http://railscasts.com/episodes/111-advanced-search-form-revised
 .user_id, resource_id
 
 #add ability to drag and drop collections
-
-#add link to email that makes the user confirm - "change a field in the database to show the person is confirmed" - end of railscasts 274, that code can be used for this
 
 #remove duplication of URLs
 .use URL and title?

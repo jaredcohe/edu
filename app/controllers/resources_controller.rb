@@ -1,4 +1,5 @@
 class ResourcesController < ApplicationController
+  layout 'application'
   before_filter :authorize, only: [:edit, :update, :destroy, :new]
 
   # GET /resources
@@ -44,18 +45,22 @@ class ResourcesController < ApplicationController
     @resource = Resource.new(params[:resource])
 
     # try to scrape
-    resource_object = Resource.scrape_data(@resource.raw_url)
-    # add scraped data or nil
-    @resource.keywords_from_source = resource_object[:keywords_from_source] ? resource_object[:keywords_from_source] : nil
-    @resource.description_from_source = resource_object[:description_from_source] ? resource_object[:description_from_source] : nil
-    @resource.title_from_source = resource_object[:title_from_source] ? resource_object[:title_from_source] : nil
-    @resource.raw_html = resource_object[:raw_html] ? resource_object[:raw_html] : nil
-
-    if @resource.save
-      redirect_to resources_path, notice: 'Resource was successfully created.'
+    scrape_results = scrape_resource(@resource.raw_url)
+    if @resource.raw_html?
+      @resource.raw_html = scrape_results[:raw_html]
+      @resource.parse_scraped_data(scrape_results[:html])
+      if @resource.save
+        redirect_to resources_path, notice: 'Resource was successfully created.'
+      else
+        p "00000"
+        render action: "new"
+      end
     else
-      render action: "new"
+      p "1111111"
+      flash[:notice] = "Resource website not working"
+      render "resources/new"
     end
+
   end
 
   # PUT /resources/1

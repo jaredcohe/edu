@@ -237,6 +237,8 @@ restart the server
 finish editing other files
 
 heroku
+add gem 'pg' to gemfile
+add to /etc/my.cnf this [mysqld] max_allowed_packet = 32M
 heroku create
 ==
 Creating warm-forest-3395... done, stack is cedar
@@ -251,29 +253,9 @@ heroku db:push
 
 
 xxx
-heroku custom domain
+modularize the scraping, move into application helper
 
-heroku addons:add custom_domains
-heroku domains:add <name such as www.disclaim.in>
-heroku domains:add <name such as disclaim.in>
-
-go to host and add to A names under DNS management:
-75.101.163.44
-75.101.145.87
-174.129.212.2
-
-http://devcenter.heroku.com/articles/custom-domains
-
-to destroy database on internet, go to directory and: <heroku db:push>
-to push: git push heroku
-
-before pushing to heroku run: bundle exec rake assets:precompile
-to fix heroku not seeing css scss files, type this in terminal: RAILS_ENV=production bundle exec rake assets:precompile
-
-
-
-
-
+add no dupes
 
 #add link to email that makes the user confirm - "change a field in the database to show the person is confirmed" - end of railscasts 274, that code can be used for this
 
@@ -302,7 +284,18 @@ http://railscasts.com/episodes/111-advanced-search-form-revised
 
 #add todo list
 
-
+heroku custom domain
+heroku addons:add custom_domains
+heroku domains:add <name such as www.disclaim.in>
+heroku domains:add <name such as disclaim.in>
+go to host and add to A names under DNS management:
+75.101.163.44
+75.101.145.87
+174.129.212.2
+http://devcenter.heroku.com/articles/custom-domains
+to destroy database on internet, go to directory and: <heroku db:push>
+to push: git push heroku
+before pushing to heroku run: bundle exec rake assets:precompile
 
 
 ------

@@ -253,9 +253,10 @@ heroku db:push
 
 
 xxx
-modularize the scraping, move into application helper
+#add no dupes
 
-add no dupes
+#fix stack exchange scraping issue
+.what should happen when scraping fails, why doesnt Stack scrape?
 
 #add link to email that makes the user confirm - "change a field in the database to show the person is confirmed" - end of railscasts 274, that code can be used for this
 

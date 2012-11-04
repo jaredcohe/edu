@@ -46,21 +46,22 @@ class ResourcesController < ApplicationController
 
     # try to scrape
     scrape_results = scrape_resource(@resource.raw_url)
-    if @resource.raw_html?
+
+    # if scraped
+    if scrape_results[:raw_html]
       @resource.raw_html = scrape_results[:raw_html]
       @resource.parse_scraped_data(scrape_results[:html])
       if @resource.save
-        redirect_to resources_path, notice: 'Resource was successfully created.'
+        flash[:notice] = 'Resource was successfully created.'
+        redirect_to resources_path
       else
-        p "00000"
         render action: "new"
       end
+    # if didn't scrape
     else
-      p "1111111"
-      flash[:notice] = "Resource website not working"
+      flash[:notice] = 'Resource not created.'
       render "resources/new"
     end
-
   end
 
   # PUT /resources/1

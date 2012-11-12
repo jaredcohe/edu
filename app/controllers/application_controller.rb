@@ -1,6 +1,30 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  def fetch(uri, tries=0)
+    pp "#{uri} and #{tries}"
+    response = Net::HTTP.get_response(uri.host, uri.path)
+
+    if tries < 4
+      case response.code
+      when '200'
+        if response.body == ''
+          tries = tries + 1
+          fetch(uri, tries)
+        else
+          response
+        end
+      when '302'
+        tries = tries + 1
+        uri = URI(response['location'])
+        pp uri
+        fetch(uri, tries)
+      end
+    else
+      false
+    end
+  end
+
   def scrape_resource(raw_url)
     require 'nokogiri'
     require 'open-uri'
@@ -8,10 +32,12 @@ class ApplicationController < ActionController::Base
     require 'pp'
 
     raw_scraped_data = {}
-    begin
+    uri = URI(raw_url)
+    resp = fetch(uri)
+    
+    if resp
       raw_scraped_data[:raw_html] = Net::HTTP.get URI.parse(raw_url)
-      raw_scraped_data[:html] = Nokogiri::HTML(open(raw_url))
-    rescue
+      raw_scraped_data[:html] = Nokogiri::HTML(open(raw_url))      
     end
     raw_scraped_data
   end

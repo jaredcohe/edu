@@ -41,23 +41,29 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    p 'running ResourcesController#create'
     @resource = Resource.new(params[:resource])
+    #Resource.find_by_raw_url(@resource.raw_url)
+
+    # if the resource already exists based on URL
+    #if Resource.find_by_raw_url(@resource.raw_url)
+     # render 
 
     # try to scrape
     scrape_results = scrape_resource(@resource.raw_url)
-
+    @resource.raw_html = scrape_results[:raw_html]
+    
     # if scraped
-    if scrape_results[:raw_html]
-      @resource.raw_html = scrape_results[:raw_html]
+    pp @resource.raw_html
+    if @resource.raw_html
       @resource.parse_scraped_data(scrape_results[:html])
-      if @resource.save
-        flash[:notice] = 'Resource was successfully created.'
-        redirect_to resources_path
-      else
-        render action: "new"
-      end
-    # if didn't scrape
+    else
+      @resource.title_from_source = @resource.raw_url
+    end
+    pp @resource
+
+    if @resource.save
+      flash[:notice] = 'Resource was successfully created.'
+      redirect_to resources_path
     else
       flash[:notice] = 'Resource not created.'
       render "resources/new"

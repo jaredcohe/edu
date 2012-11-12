@@ -255,9 +255,6 @@ heroku db:push
 xxx
 #add no dupes
 
-#fix stack exchange scraping issue
-.what should happen when scraping fails, why doesnt Stack scrape?
-
 #add link to email that makes the user confirm - "change a field in the database to show the person is confirmed" - end of railscasts 274, that code can be used for this
 
 #add ability to create collections by putting in a URL or searching Resources
@@ -297,6 +294,11 @@ http://devcenter.heroku.com/articles/custom-domains
 to destroy database on internet, go to directory and: <heroku db:push>
 to push: git push heroku
 before pushing to heroku run: bundle exec rake assets:precompile
+
+#fix coursera scraping issue
+.wont scrape coursera
+.https://class.coursera.org/compilers-2012-002/class/index
+#https://class.coursera.org/compilers-2012-002/auth/welcome?type=logout&visiting=%2Fcompilers-2012-002%2Fclass%2Findex
 
 
 ------

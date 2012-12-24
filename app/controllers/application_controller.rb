@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   def fetch(uri, tries=0)
     pp "#{uri} and #{tries}"
     response = Net::HTTP.get_response(uri.host, uri.path)
-
     if tries < 4
       case response.code
       when '200'

@@ -253,7 +253,9 @@ heroku db:push
 
 
 xxx
-#add no dupes
+#add no dupes to git
+
+#add live validation for url in create resource
 
 #add link to email that makes the user confirm - "change a field in the database to show the person is confirmed" - end of railscasts 274, that code can be used for this
 

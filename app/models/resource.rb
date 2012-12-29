@@ -3,6 +3,8 @@ class Resource < ActiveRecord::Base
     :description_from_user, :description_from_source, :keywords_from_user,
     :keywords_from_source, :raw_html
 
+  has_many :reviews
+
   def parse_scraped_data(html)
     p 'running Resource#self.scrape_data in Resource model'
     

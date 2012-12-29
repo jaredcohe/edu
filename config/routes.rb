@@ -1,4 +1,6 @@
 Edu::Application.routes.draw do
+  resources :reviews
+
   root :to => 'resources#index'
   get "password_resets/new"
 

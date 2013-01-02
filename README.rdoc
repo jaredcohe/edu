@@ -251,23 +251,101 @@ heroku rename bedu
 heroku run rake db:migrate
 heroku db:push
 
+Add Review Model
+rails g scaffold Review user_id:integer title:text body:text score:integer resource_id:integer
+==
+   invoke  active_record
+   create    db/migrate/20121229032421_create_reviews.rb
+   create    app/models/review.rb
+   invoke    test_unit
+   create      test/unit/review_test.rb
+   create      test/fixtures/reviews.yml
+   invoke  resource_route
+    route    resources :reviews
+   invoke  scaffold_controller
+   create    app/controllers/reviews_controller.rb
+   invoke    erb
+   create      app/views/reviews
+   create      app/views/reviews/index.html.erb
+   create      app/views/reviews/edit.html.erb
+   create      app/views/reviews/show.html.erb
+   create      app/views/reviews/new.html.erb
+   create      app/views/reviews/_form.html.erb
+   invoke    test_unit
+   create      test/functional/reviews_controller_test.rb
+   invoke    helper
+   create      app/helpers/reviews_helper.rb
+   invoke      test_unit
+   create        test/unit/helpers/reviews_helper_test.rb
+   invoke  assets
+   invoke    js
+   create      app/assets/javascripts/reviews.js
+   invoke    scss
+   create      app/assets/stylesheets/reviews.css.scss
+   invoke  scss
+identical    app/assets/stylesheets/scaffolds.css.scss
+==
+rake db:migrate
+==  CreateReviews: migrating ==================================================
+-- create_table(:reviews)
+   -> 0.2907s
+==  CreateReviews: migrated (0.3050s) =========================================
+add to associations:
+to resource model - has_many :reviews
+to reviews model - belongs_to :resource
+git commit this
+
+
 
 
 xxx
-#add no dupes to git
 
-#add live validation for url in create resource
+
+-----
+#User can create collections by putting in a URL or searching Resources
+http://railscasts.com/episodes/196-nested-model-form-revised
+
+Collection Model
+rails g scaffold Collection user_id:integer title:text description:text keywords:text
+
+has_many :collectionizes, :dependent => :destroy
+has_many :resources, :through => :collectionizes, :foreign_key => :resource_id
+
+accepts_nested_attributes_for :resources, :reject_if => lambda { |a| a[:raw_url].blank? }
+accepts_nested_attributes_for :collectionizes
+
+Resource Model
+has_many :collectionizes
+has_many :collections, :through => :collectionizes, :foreign_key => :collection_id
+accepts_nested_attributes_for :collectionizes
+accepts_nested_attributes_for :collections
+
+Collectionize Model
+resource_id:integer, collection_id:integer, description:text, order:integer
+belongs_to :collection
+belongs_to :resource
+accepts_nested_attributes_for :resource
+accepts_nested_attributes_for :collection
+
+#add comments to collections, rather than reviews?
+
+-----
+
+xxx
+#git push the no dupes
+
+
+#add live validation for url in create resource and other places
 
 #add link to email that makes the user confirm - "change a field in the database to show the person is confirmed" - end of railscasts 274, that code can be used for this
 
-#add ability to create collections by putting in a URL or searching Resources
-http://railscasts.com/episodes/196-nested-model-form-revised
+#add BML
 
 fix tagging
 http://railscasts.com/episodes/382-tagging
 
 #make user ID in collection a hidden field
-# collection#create work properly, scrape resource
+#collection#create work properly, scrape resource
 
 #add search of collections and resources
 http://railscasts.com/episodes/343-full-text-search-in-postgresql

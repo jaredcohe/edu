@@ -40,6 +40,6 @@
   <%= @resource.user_id %>
 </p>
 
-
+<%= link_to 'Review This', new_review_path(:resource_id => @resource.id) %> |
 <%= link_to 'Edit', edit_resource_path(@resource) %> |
 <%= link_to 'Back', resources_path %>

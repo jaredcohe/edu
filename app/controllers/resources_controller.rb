@@ -2,6 +2,12 @@ class ResourcesController < ApplicationController
   layout 'application'
   before_filter :authorize, only: [:edit, :update, :destroy, :new]
 
+  def home
+    @resources = Resource.search(params[:search]) #.paginate(:per_page => 100, :page => params[:page])
+    p @resources
+    p params
+  end
+
   # GET /resources
   def index
     @resources = Resource.all
@@ -76,4 +82,5 @@ class ResourcesController < ApplicationController
     @resource.destroy
     redirect_to resources_url
   end
+
 end

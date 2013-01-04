@@ -1,0 +1,45 @@
+<div id='bottom'>
+
+  <div id="resources">
+
+      <h1 class='resource_header orange_header'>Resource</h1>
+
+      <%- @resources.each do |resource| %>
+        <div class='resource_row'>
+          <%= link_to truncate(resource.title_from_user? ? resource.title_from_user : resource.title_from_source, :length => 60), resource, :class => 'resource_link' %>
+<%#
+          <div class='lesson_plans_icon'>
+            <%= link_to_function "<span></span>".html_safe, "add_lesson_to_log(this,
+              \"#{escape_javascript(@user_id.to_s)}\",
+              \"#{escape_javascript(lesson_plan.id.to_s)}\")", :class => 'plus' %[get rid of this space if I put this back]>
+          </div>
+%>
+        </div>
+      <% end %>
+
+  </div>
+
+<%#
+  <div id="knowledges">
+
+    <h1 class='knowledges_header orange_header'>Sources</h1>
+
+    <%- @knowledges.each do |knowledge| %[get rid of this space if I put this back]>  
+      <div class='knowledges_row'>
+        <%= link_to truncate(knowledge.title, :length => 46), knowledge, :class => 'knowledges_link' %[get rid of this space if I put this back]>
+
+<%#
+        <div class='knowledges_icons'>
+          <%= link_to_function "<span></span>".html_safe, "add_knowledge_to_log(this,
+          \"#{escape_javascript(@user_id.to_s)}\",
+          \"#{escape_javascript(knowledge.id.to_s)}\")", :class => 'plus' %[get rid of this space if I put this back]>
+          <%= link_to "<span></span>".html_safe, knowledge.url, :class => 'arrow', :target => '_blank' %[get rid of this space if I put this back]>
+        </div>
+%[get rid of this space if I put this back]>
+      </div>
+    <% end %[get rid of this space if I put this back]>
+
+  </div>
+%>
+
+</div>

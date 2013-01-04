@@ -33,4 +33,45 @@ class Resource < ActiveRecord::Base
     self.keywords_from_source = html.css("meta[name='keywords']").length > 0 ? html.css("meta[name='keywords']").first.attributes['content'].value : ""
   end
 
+  def self.search(search_term)
+    if search_term
+      where(["upper(title_from_user) LIKE upper(?) 
+        OR upper(title_from_source) LIKE upper(?) 
+        OR upper(description_from_user) LIKE upper(?) 
+        OR upper(description_from_source) LIKE upper(?) 
+        OR upper(keywords_from_user) LIKE upper(?) 
+        OR upper(keywords_from_source) LIKE upper(?)",
+         "%#{search_term}%", "%#{search_term}%", "%#{search_term}%",
+         "%#{search_term}%", "%#{search_term}%", "%#{search_term}%"])
+    else
+      scoped
+    end
+  end
+
+  def self.full_search(search_term)
+    if search_term
+      #arel_table.[:title].matches(upper(?), )
+      #where('upper(title) LIKE upper(?)', "%#{search_term}%".or('upper(description) LIKE upper(?)', "%#{search_term}%"))
+      #Knowledge.where(Knowledge.arel_table[:title].matches("%ruby%").or(Knowledge.arel_table[:description].matches("%ruby%")))
+    else
+      scoped
+    end
+  end
+
+  def self.description_search(search_term)
+    if search_term
+      where('upper(description) LIKE upper(?)', "%#{search_term}%")
+    else
+      scoped
+    end
+  end
+
+  def self.category_search(search_term)
+    if search_term
+      joins(:categories).where("categories.name LIKE '%#{search_term}%'")
+    else
+      scoped
+    end
+  end
+
 end

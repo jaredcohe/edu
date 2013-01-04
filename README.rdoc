@@ -295,39 +295,7 @@ to resource model - has_many :reviews
 to reviews model - belongs_to :resource
 git commit this
 
-
-
-
-xxx
-
-
------
-#User can create collections by putting in a URL or searching Resources
-http://railscasts.com/episodes/196-nested-model-form-revised
-
-Collection Model
-rails g scaffold Collection user_id:integer title:text description:text keywords:text
-
-has_many :collectionizes, :dependent => :destroy
-has_many :resources, :through => :collectionizes, :foreign_key => :resource_id
-
-accepts_nested_attributes_for :resources, :reject_if => lambda { |a| a[:raw_url].blank? }
-accepts_nested_attributes_for :collectionizes
-
-Resource Model
-has_many :collectionizes
-has_many :collections, :through => :collectionizes, :foreign_key => :collection_id
-accepts_nested_attributes_for :collectionizes
-accepts_nested_attributes_for :collections
-
-Collectionize Model
-resource_id:integer, collection_id:integer, description:text, order:integer
-belongs_to :collection
-belongs_to :resource
-accepts_nested_attributes_for :resource
-accepts_nested_attributes_for :collection
-
-#add comments to collections, rather than reviews?
+# search works, regular and AJAX
 
 -----
 
@@ -380,6 +348,34 @@ before pushing to heroku run: bundle exec rake assets:precompile
 .wont scrape coursera
 .https://class.coursera.org/compilers-2012-002/class/index
 #https://class.coursera.org/compilers-2012-002/auth/welcome?type=logout&visiting=%2Fcompilers-2012-002%2Fclass%2Findex
+
+
+#User can create collections by putting in a URL or searching Resources
+http://railscasts.com/episodes/196-nested-model-form-revised
+
+Collection Model
+rails g scaffold Collection user_id:integer title:text description:text keywords:text
+
+has_many :collectionizes, :dependent => :destroy
+has_many :resources, :through => :collectionizes, :foreign_key => :resource_id
+
+accepts_nested_attributes_for :resources, :reject_if => lambda { |a| a[:raw_url].blank? }
+accepts_nested_attributes_for :collectionizes
+
+Resource Model
+has_many :collectionizes
+has_many :collections, :through => :collectionizes, :foreign_key => :collection_id
+accepts_nested_attributes_for :collectionizes
+accepts_nested_attributes_for :collections
+
+Collectionize Model
+resource_id:integer, collection_id:integer, description:text, order:integer
+belongs_to :collection
+belongs_to :resource
+accepts_nested_attributes_for :resource
+accepts_nested_attributes_for :collection
+
+#add comments to collections, rather than reviews?
 
 
 ------

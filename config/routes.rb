@@ -1,13 +1,14 @@
 Edu::Application.routes.draw do
   resources :reviews
 
-  root :to => 'resources#index'
+  root :to => 'resources#home'
   get "password_resets/new"
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   delete 'logout', to: 'sessions#destroy', as: 'logout'
 
+  get "search" => "resources#home"
   resources :users
   resources :sessions
   resources :password_resets

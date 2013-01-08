@@ -4,6 +4,9 @@ class ResourcesController < ApplicationController
 
   def home
     @resources = Resource.search(params[:search]) #.paginate(:per_page => 100, :page => params[:page])
+    @resources.each do |resource|
+      resource[:keywords_for_view] = resource.keywords_from_user && resource.keywords_from_source
+    end
     p @resources
     p params
   end

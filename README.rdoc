@@ -296,12 +296,15 @@ to reviews model - belongs_to :resource
 git commit this
 
 # search works, regular and AJAX
+http://railscasts.com/episodes/343-full-text-search-in-postgresql
+http://railscasts.com/episodes/240-search-sort-paginate-with-ajax
+http://railscasts.com/episodes/111-advanced-search-form-revised
 
 -----
 
 xxx
-#git push the no dupes
 
+# add admin signoff on each resource
 
 #add live validation for url in create resource and other places
 
@@ -312,22 +315,17 @@ xxx
 fix tagging
 http://railscasts.com/episodes/382-tagging
 
-#make user ID in collection a hidden field
-#collection#create work properly, scrape resource
+# make user ID in collection a hidden field
+# collection#create work properly, scrape resource
 
-#add search of collections and resources
-http://railscasts.com/episodes/343-full-text-search-in-postgresql
-http://railscasts.com/episodes/240-search-sort-paginate-with-ajax
-http://railscasts.com/episodes/111-advanced-search-form-revised
+# improve search
+.order should be better
 .search of "r" and "R" should return R programming and not everything with an R
 
 #add reviews of collections and resources
 .user_id, resource_id
 
-#add ability to drag and drop collections
-
-#remove duplication of URLs
-.use URL and title?
+# add ability to drag and drop collections
 
 #add todo list
 

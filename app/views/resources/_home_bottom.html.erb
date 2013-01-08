@@ -1,23 +1,37 @@
 <div id='bottom'>
 
   <div id="resources">
-
-      <h1 class='resource_header orange_header'>Resource</h1>
-
-      <%- @resources.each do |resource| %>
-        <div class='resource_row'>
-          <%= link_to truncate(resource.title_from_user? ? resource.title_from_user : resource.title_from_source, :length => 60), resource, :class => 'resource_link' %>
-<%#
-          <div class='lesson_plans_icon'>
-            <%= link_to_function "<span></span>".html_safe, "add_lesson_to_log(this,
-              \"#{escape_javascript(@user_id.to_s)}\",
-              \"#{escape_javascript(lesson_plan.id.to_s)}\")", :class => 'plus' %[get rid of this space if I put this back]>
-          </div>
-%>
-        </div>
-      <% end %>
-
+      <h1 class='resource_header orange_header'>Resources</h1>
+      <table class='resources_table'>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Tags</th>
+          <th>Score</th>
+        </tr>
+        <%- @resources.each do |resource| %>
+          <tr>
+            <td class="title_column">
+              <%= link_to truncate(resource.title_from_user? ? resource.title_from_user : resource.title_from_source, :length => 60), resource, :class => 'resource_link' %>
+            </td>
+            <td class="description_column"><%= truncate(resource.description_from_user? ? resource.description_from_user : resource.description_from_source, :length => 60) %></td>
+            <td class="keywords_column"><%= resource.keywords_for_view %></td>
+            <td class="score_column">Score Placeholder</td>
+          </tr>
+        <% end %>
+      </table>
   </div>
+</div>
+
+
+  <%#
+            <div class='lesson_plans_icon'>
+              <%= link_to_function "<span></span>".html_safe, "add_lesson_to_log(this,
+                \"#{escape_javascript(@user_id.to_s)}\",
+                \"#{escape_javascript(lesson_plan.id.to_s)}\")", :class => 'plus' %[get rid of this space if I put this back]>
+            </div>
+  %>
+
 
 <%#
   <div id="knowledges">
@@ -41,5 +55,3 @@
 
   </div>
 %>
-
-</div>

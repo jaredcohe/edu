@@ -13,7 +13,7 @@ class ResourcesController < ApplicationController
 
   # GET /resources
   def index
-    @resources = Resource.all
+    @resources = Resource.order("id desc")
   end
 
   # GET /resources/1

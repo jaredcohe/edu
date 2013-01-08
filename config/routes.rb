@@ -13,6 +13,7 @@ Edu::Application.routes.draw do
   resources :sessions
   resources :password_resets
   resources :resources
+  get "index" => "resources#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

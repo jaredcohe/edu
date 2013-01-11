@@ -42,7 +42,6 @@ class ResourcesController < ApplicationController
     end
 
     @resource = Resource.new(params[:resource])
-    pp @resource
     
     # try to scrape
     begin

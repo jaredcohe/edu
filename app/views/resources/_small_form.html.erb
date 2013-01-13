@@ -1,0 +1,5 @@
+<%= form_tag resources_path, :method => 'post', :id => 'resources_create' do %>
+  <%= text_field_tag :url_or_title %>
+  <%= hidden_field_tag :user_id, current_user ? current_user.id : '' %>
+  <%= submit_tag 'Submit', :id => 'small_form_submit' %>
+<% end %>

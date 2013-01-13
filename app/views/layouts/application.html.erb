@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Edu</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -10,16 +10,24 @@
 
   <p><%= notice %></p>
 
-<%= link_to "Edu", :root %>
-  <% if current_user %>
-    <%= current_user.email %>
-    <%= link_to "Log Out", logout_path, method: "delete" %>
-  <% else %>
-    <%= link_to "Sign Up", signup_path %>
-    <%= link_to "Log In", login_path %>
-  <% end %>
+  <div id='layout'>
+    <div id='layout_top_left'>
+      <div><%= link_to "Home", :root %></div>
+      <% if current_user %>
+        <div><%= link_to "Log Out", logout_path, method: "delete" %></div>
+      <% else %>
+        <div><%= link_to "Sign Up", signup_path %></div>
+        <div><%= link_to "Log In", login_path %></div>
+      <% end %>
+    </div>
+    <div id='layout_top_right'>
+      <div id='new_resource_title'>New Resource</div>
+      <%= render 'resources/small_form'%>
+    </div>
+  </div>
 
-<%= yield %>
-
+  <div id='main'>
+    <%= yield %>
+  </div>
 </body>
 </html>

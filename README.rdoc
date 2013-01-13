@@ -306,8 +306,10 @@ http://railscasts.com/episodes/111-advanced-search-form-revised
 heroku run rake db:migrate
 heroku db:pull
 
-
 -----
+
+# add other URLs table to avoid dupes
+# resource_id, url
 
 xxx
 

@@ -3,12 +3,11 @@ class ResourcesController < ApplicationController
   before_filter :authorize, only: [:edit, :update, :destroy, :new]
 
   def home
+    @resource = Resource.new
     @resources = Resource.search(params[:search]) #.paginate(:per_page => 100, :page => params[:page])
     @resources.each do |resource|
       resource[:keywords_for_view] = resource.keywords_from_user && resource.keywords_from_source
     end
-    p @resources
-    p params
   end
 
   # GET /resources
@@ -32,7 +31,11 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    @existing_resource = Resource.find_by_raw_url(params[:resource][:raw_url])
+    if params[:url_or_title]
+      @existing_resource = Resource.find_by_raw_url(params[:url_or_title])
+    else
+      @existing_resource = Resource.find_by_raw_url(params[:resource][:raw_url])
+    end
 
     #if the resource already exists, redirect to it
     if @existing_resource
@@ -41,8 +44,12 @@ class ResourcesController < ApplicationController
       return
     end
 
-    @resource = Resource.new(params[:resource])
-    
+    if params[:url_or_title]
+      @resource = Resource.new({:user_id => params[:user_id], :raw_url => params[:url_or_title]})
+    else
+      @resource = Resource.new(params[:resources])
+    end
+
     # try to scrape
     begin
       scrape_results = scrape_resource(@resource.raw_url)

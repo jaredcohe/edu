@@ -1,6 +1,6 @@
 class ResourcesController < ApplicationController
   layout 'application'
-  before_filter :authorize, only: [:edit, :update, :destroy, :new]
+  before_filter :authorize, only: [:edit, :update, :destroy, :new, :create]
 
   def home
     @resource = Resource.new

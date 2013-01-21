@@ -7,6 +7,7 @@
     <th>ID</th>
     <th>Title from user</th>
     <th>Title from source</th>
+    <th>Provider</th>
     <th>Raw url</th>
     <th>Description from user</th>
     <th>Description from source</th>
@@ -23,6 +24,7 @@
     <td><%= resource.id %></td>
     <td><%= resource.title_from_user %></td>
     <td><%= link_to resource.title_from_source, resource.raw_url, :target => "_blank" %></td>
+    <td><%= resource.provider %></td>
     <td><%= resource.raw_url %></td>
     <td><%= resource.description_from_user %></td>
     <td><%= resource.description_from_source %></td>

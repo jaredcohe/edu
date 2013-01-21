@@ -1,7 +1,7 @@
 class Resource < ActiveRecord::Base
   attr_accessible :clean_url, :raw_url, :user_id, :title_from_user, :title_from_source, 
     :description_from_user, :description_from_source, :keywords_from_user,
-    :keywords_from_source, :raw_html, :url_or_title
+    :keywords_from_source, :raw_html, :url_or_title, :provider
 
   has_many :reviews
 

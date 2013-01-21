@@ -87,31 +87,38 @@ body {
 	#layout_top_right {
 		color: $orange;
 		float: right;
+		text-align: center;
 		width: 200px;
 	}
 
 	#url_or_title {
-	  @include rounded-corners(2px);
+    //color: $orange;
 		margin-bottom: 4px;
+		&:focus {
+      border: 2px $orange solid;
+    }
 	}
 	
 	#small_form_submit {
-		float: right;
-		margin-right: 46px;
-		text-align: right;
 		color: $orange;
-		background-color: $gray1;
+		margin: 0px auto;
+		&:hover {
+		  color: darken($orange, 20%);
+		  background: $gray3;
+		  cursor: pointer;
+		}
 	}
 	
 	#new_resource_title {
-		float: right;
-		margin-right: 46px;
+		text-align: center;
+		margin: 0px auto;
 	}
 }
 
 #main {
 	float: left;
 	margin: 10px 0 0 10px;
+	width: 100%;
 }
 
 ol, ul {
@@ -123,4 +130,93 @@ ol, ul {
 hr {
   color: $purple;
   height: 10px;
+}
+
+#flash_notice {
+  color: $darkblue2;
+  font-size: 20px;
+  margin-left: 4px;
+}
+
+.orange_header  {
+  color: $orange;
+  font-size: 20px;
+  font-weight: normal;
+  padding-top: 12px;
+}
+
+.green_header {
+  color: $green;
+  font-size: 28px;
+  font-weight: normal;
+  margin-top: 12px;
+  text-align: center;
+}
+
+#top, #bottom {
+  text-align: center;
+  width: 100%;
+}
+
+#top {
+  input[type="submit"] {
+    font-size: 18px;
+    margin-bottom: 20px;
+    &:hover {
+      background: $gray3;
+      color: $darkgreen;
+      cursor: pointer;
+    }
+  }
+}
+
+input {
+  @include rounded-corners(8px);
+  background-color: white;
+  border: 2px $gray3 solid;
+  color: green;
+  text-align: center;
+}
+
+input[id="search"], input[id="email"], input[id="user_email"], input[id="password"], input[id="user_password"], input[id="user_password_confirmation"] {
+  @include rounded-corners(8px);
+  background-color: white;
+  border: 2px $gray3 solid;
+  color: $green;
+  font-size: 24px;
+  margin: 14px 0px 8px 0px;
+  width: 400px;
+  text-align: center;
+  &:focus {
+    border: 2px green solid;
+  }
+}
+
+input[id="url_or_title"] {
+  color: $orange;
+}
+
+// placeholder formats
+#layout_top_right, #top {
+  ::-webkit-input-placeholder {
+    color: $gray3;
+  }
+}
+
+#layout_top_right, #top {
+  input:-moz-placeholder { /* Firefox 18- */
+    color: $gray3;
+  }
+}
+
+#layout_top_right, #top {
+  input::-moz-placeholder {  /* Firefox 19+ */
+    color: $gray3;
+  }
+}
+
+#layout_top_right, #top {
+  input:-ms-input-placeholder {  
+    color: $gray3;
+  }
 }

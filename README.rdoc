@@ -306,16 +306,34 @@ http://railscasts.com/episodes/111-advanced-search-form-revised
 heroku run rake db:migrate
 heroku db:pull
 
+# add provider
+rails g migration add_provider_to_resource provider:text
+===
+    invoke  active_record
+    create    db/migrate/20130120223732_add_provider_to_resource.rb
+====
+edit file to add down for rollback
+rake db:migrate
+==  AddProviderToResource: migrating ==========================================
+-- add_column(:resources, :provider, :text)
+   -> 0.2048s
+==  AddProviderToResource: migrated (0.2050s) =================================
+add provider field to resource form
+
+
 -----
+
+xxx
+
+# add admin signoff on each resource, integer for stage
+# search should find substring in URL, and provider
+
+# make it look nice
 
 # add other URLs table to avoid dupes
 # resource_id, url
 
 xxx
-
-# make it look nice
-
-# add admin signoff on each resource
 
 # add live validation for url in create resource and other places
 

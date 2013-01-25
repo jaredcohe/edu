@@ -325,6 +325,16 @@ add provider field to resource form
 
 xxx
 
+# auto focus on search at home
+
+# viewings table, if user has visited, gray out the tutorial
+# add keywords to card
+# put a mark on the ones that are syllabi
+# menu on mouseover card to add to-do
+# get rid of search button?
+
+# add to resource boxes a link to go to the external resource with target blank
+
 # add admin signoff on each resource, integer for stage
 # search should find substring in URL, and provider
 

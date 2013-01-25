@@ -1,8 +1,11 @@
-<div id='top'>
-  <h1 class='green_header'>Teach Me</h1>
-  <%= form_tag search_path, :method => 'get', :id => "resources_search" do %>
-    <%= text_field_tag :search, params[:search], :placeholder => "html, poker, swimming ..." %><br />
-    <%= submit_tag "Search" %>
-  <% end %>
+<div class='row-fluid'><div id='header_image_container' class='span12'><%= image_tag 'profile.jpg', :id => 'header_image' %></div></div>
+<div class='row-fluid'>
+  <div id='search_header' class='span12'>
+    <%= form_tag search_path, :method => 'get', :id => "resources_search" do %>
+      <%= text_field_tag :search, params[:search], :placeholder => "search for resource ..." %><br />
+      <%= submit_tag "Search" %>
+    <% end %>
+  </div>
 </div>
+
 <%= render "home_bottom" %>

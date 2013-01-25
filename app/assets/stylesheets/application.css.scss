@@ -10,30 +10,7 @@
  *
  *= require_self
  *= require_tree .
- */
-
-/* Clear everything */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-  // border: solid 1px black;
-  word-wrap: break-word;
-	text-decoration: none;
-  // word-break: break-all;
-}
+*/
 
 $darkblue1: #4E4D56;
 $darkblue2: #47616F;
@@ -59,164 +36,52 @@ $white: #FFFFFF;
   -webkit-border-radius: $radius;
 }
 
+div {
+  // border: 1px black solid;
+}
+
 body {
-  font-size: 14px;
-  font-family: “Helvetica Neue”, Helvetica, Arial, sans-serif;
-  line-height: 14px;
+  padding: 0px 60px;
 }
 
-#layout {
-	float: left;
-	line-height: 18px;
-	margin: 10px 0 0 10px;
-	min-width: 200px;
-	width: 100%;
-	
-	a, a:visited, a:link, a:hover, a:active {
-		color: $orange;
-		height: 20px;
-		width: 60px;
-	}
-
-	#layout_top_left {
-		float: left;
-		margin-bottom: 20px;
-		width: 100px;
-	}
-	
-	#layout_top_right {
-		color: $orange;
-		float: right;
-		text-align: center;
-		width: 200px;
-	}
-
-	#url_or_title {
-    //color: $orange;
-		margin-bottom: 4px;
-		&:focus {
-      border: 2px $orange solid;
-    }
-	}
-	
-	#small_form_submit {
-		color: $orange;
-		margin: 0px auto;
-		&:hover {
-		  color: darken($orange, 20%);
-		  background: $gray3;
-		  cursor: pointer;
-		}
-	}
-	
-	#new_resource_title {
-		text-align: center;
-		margin: 0px auto;
-	}
+#new_resource_header {
+  width: 200px;
 }
 
-#main {
-	float: left;
-	margin: 10px 0 0 10px;
-	width: 100%;
-}
-
-ol, ul {
-  list-style: none; 
-  padding: 0;
-  margin: 0;
-}
-
-hr {
-  color: $purple;
-  height: 10px;
-}
-
-#flash_notice {
-  color: $darkblue2;
-  font-size: 20px;
-  margin-left: 4px;
-}
-
-.orange_header  {
-  color: $orange;
-  font-size: 20px;
-  font-weight: normal;
-  padding-top: 12px;
-}
-
-.green_header {
-  color: $green;
-  font-size: 28px;
-  font-weight: normal;
-  margin-top: 12px;
+#search_header, #results, #search, #header_image, #header_image_container, .text-center {
   text-align: center;
 }
 
-#top, #bottom {
+#layout_top_right {
+  float: right;
+}
+
+#header_image {
+  //background-image: url("/assets/images/profile.jpg");
+  //background-repeat: no-repeat;
+  //background-position: top left;
+  height: 80px;
+  margin-bottom: 25px;
+  width: 600px;
+}
+
+.resource_boxes {
+  float: left;
+  height: 160px;
+  margin: 4px;
+  // overflow: hidden;
+  // overflow: scroll;
+  padding: 8px;
   text-align: center;
-  width: 100%;
-}
-
-#top {
-  input[type="submit"] {
-    font-size: 18px;
-    margin-bottom: 20px;
-    &:hover {
-      background: $gray3;
-      color: $darkgreen;
-      cursor: pointer;
-    }
+  width: 160px;
+  // word-wrap: break-word;
+  // word-break: break-all;
+  @include rounded-corners(4px);
+  &:hover {
+    background: $gray2;
+    cursor: pointer;
   }
 }
 
-input {
-  @include rounded-corners(8px);
-  background-color: white;
-  border: 2px $gray3 solid;
-  color: green;
-  text-align: center;
-}
-
-input[id="search"], input[id="email"], input[id="user_email"], input[id="password"], input[id="user_password"], input[id="user_password_confirmation"] {
-  @include rounded-corners(8px);
-  background-color: white;
-  border: 2px $gray3 solid;
-  color: $green;
-  font-size: 24px;
-  margin: 14px 0px 8px 0px;
-  width: 400px;
-  text-align: center;
-  &:focus {
-    border: 2px green solid;
-  }
-}
-
-input[id="url_or_title"] {
-  color: $orange;
-}
-
-// placeholder formats
-#layout_top_right, #top {
-  ::-webkit-input-placeholder {
-    color: $gray3;
-  }
-}
-
-#layout_top_right, #top {
-  input:-moz-placeholder { /* Firefox 18- */
-    color: $gray3;
-  }
-}
-
-#layout_top_right, #top {
-  input::-moz-placeholder {  /* Firefox 19+ */
-    color: $gray3;
-  }
-}
-
-#layout_top_right, #top {
-  input:-ms-input-placeholder {  
-    color: $gray3;
-  }
+#resource_boxes_container  {
 }

@@ -6,7 +6,19 @@ class ResourcesController < ApplicationController
     @resource = Resource.new
     @resources = Resource.search(params[:search]) #.paginate(:per_page => 100, :page => params[:page])
     @resources.each do |resource|
-      resource[:keywords_for_view] = resource.keywords_from_user && resource.keywords_from_source
+      if resource.title_from_user?
+        resource[:title_for_view] = resource.title_from_user
+      else 
+        resource[:title_for_view] = resource.title_from_source
+      end
+      
+      if resource.description_from_user?
+        resource[:description_for_view] = resource.description_from_user
+      else
+        resource[:description_for_view] = resource.description_from_source
+      end
+      
+      resource[:description_length] = 150 - resource[:title_for_view].length
     end
   end
 
@@ -18,6 +30,9 @@ class ResourcesController < ApplicationController
   # GET /resources/1
   def show
     @resource = Resource.find(params[:id])
+    @resource[:title_to_show] = @resource.title_from_user? ? @resource.title_from_user : @resource.title_from_source
+    @resource[:description_to_show] = @resource.description_from_user? ? @resource.description_from_user : @resource.description_from_source
+    @resource[:keywords_to_show] = @resource.keywords_from_user? ? @resource.keywords_from_user : @resource.keywords_from_source
   end
 
   # GET /resources/new
@@ -67,7 +82,7 @@ class ResourcesController < ApplicationController
 
     if @resource.save
       flash[:notice] = 'Resource was successfully created.'
-      redirect_to resources_path
+      redirect_to edit_resource_path(@resource)
     else
       flash[:notice] = 'Resource not created.'
       render "resources/new"

@@ -7,26 +7,40 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <p><%= notice %></p>
 
-  <div id='layout'>
-    <div id='layout_top_left'>
-      <div><%= link_to "Home", :root %></div>
-      <% if current_user %>
-        <div><%= link_to "Log Out", logout_path, method: "delete" %></div>
-      <% else %>
-        <div><%= link_to "Sign Up", signup_path %></div>
-        <div><%= link_to "Log In", login_path %></div>
-      <% end %>
-    </div>
-    <div id='layout_top_right'>
-      <div id='new_resource_title'>New Resource</div>
-      <%= render 'resources/small_form'%>
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <a class="brand" href="#">Bedu</a>
+      <ul class="nav">
+        <li class="<%= ('active' if controller.controller_name == 'resources' && controller.action_name == 'home') %>"><%= link_to "Home", :root %></li>
+        <% if current_user %>
+          <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+        <% else %>
+          <li><%= link_to "Sign Up", signup_path %></li>
+          <li><%= link_to "Log In", login_path %></li>
+        <% end %>
+      </ul>
+      <%= link_to 'Add Resource', '#add_resource', :role => 'button', 'data-toggle' => 'modal', :class => 'btn btn-inverse pull-right' %>
+      <!-- Modal -->
+      <div id="add_resource" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Modal header</h3>
+        </div>
+        <div class="modal-body">
+          <p>One fine body…</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          <button class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+      
+      <%- render 'resources/small_form' %>
     </div>
   </div>
-
-  <div id='main'>
+  <div>
     <%= yield %>
   </div>
 </body>

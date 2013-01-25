@@ -104,6 +104,17 @@ jQuery(function(){
   });
 });
 
+
+//clickable function to open show function from home window resource boxes
+jQuery(function(){
+  jQuery(".resource_boxes").click(function() {
+    if (jQuery(this).find("a").length > 0) {
+      window.location = jQuery(this).find("a").attr("href");
+    };
+    return false;
+  });
+});
+
 //clickable function for new window
 jQuery(function(){
   jQuery("").click(function() {

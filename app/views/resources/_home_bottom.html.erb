@@ -1,23 +1,18 @@
 <div id='bottom'>
-
-  <div id="resources">
+  <div id='results' class='row-fluid'>
+    <div class=''>
     <% if params.include?('search') && params[:search] != '' %>
       <%= "Results: #{@resources.length}" %>
     <% end %>
-    <table class='resources_table'>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-      </tr>
-      <%- @resources.each do |resource| %>
-        <tr>
-          <td class="title_column">
-            <%= link_to truncate(resource.title_from_user? ? resource.title_from_user : resource.title_from_source, :length => 80), resource.raw_url, :class => 'resource_link', :target => '_blank' %>
-          </td>
-          <td class="description_column"><%= truncate(resource.description_from_user? ? resource.description_from_user : resource.description_from_source, :length => 60) %></td>
-        </tr>
-      <% end %>
-    </table>
+  </div>
+
+  <div id='resource_boxes_container' class='row-fluid'>
+    <%- @resources.each do |resource| %>
+      <div class='resource_boxes'>
+        <div class='row-fluid'><%= link_to truncate(resource.title_for_view, :length => 60), resource, :class => 'resource_link', :target => '_blank' %></div>
+        <div class='row-fluid'><%= truncate(resource.description_for_view, :length => resource.description_length) %></div>
+      </div>
+    <% end %>
   </div>
 </div>
 

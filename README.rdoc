@@ -327,8 +327,13 @@ heroku run rake addproviderstorailscasts
 
 # auto focus on search at home
 - edit application.js file
+https://github.com/jaredcohe/edu/commit/0c6e979184d953f117221b9cc8a86e4180671e97
 
-# search button bigger, remove header image
+# search button and text field bigger, remove header image
+https://github.com/jaredcohe/edu/commit/30378c66ca36b9c08ebb4dd1fe7570b327c0d47f
+
+# add click on each resource to get to the resource page
+
 
 
 -----
@@ -336,7 +341,7 @@ heroku run rake addproviderstorailscasts
 xxx
 
 # add reviews
-# add click on each resource to get to the resource page
+
 
 # viewings table, if user has visited, gray out the tutorial
 # add keywords to card

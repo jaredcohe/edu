@@ -68,6 +68,7 @@ function add_lesson_to_log (link, user_id, lesson_plantation_id) {
     };
 }
 
+// auto focus on search field on load
 $(function() {
 	$("#search_field").focus();
 });
@@ -111,7 +112,7 @@ jQuery(function(){
 
 //clickable function to open show function from home window resource boxes
 jQuery(function(){
-  jQuery(".resource_boxes").click(function() {
+  jQuery(".clickable").click(function() {
     if (jQuery(this).find("a").length > 0) {
       window.location = jQuery(this).find("a").attr("href");
     };

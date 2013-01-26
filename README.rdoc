@@ -338,14 +338,19 @@ https://github.com/jaredcohe/edu/commit/c4248a070bc145412feb025a60e85b39983f446a
 # add reviews to resource show page
 https://github.com/jaredcohe/edu/commit/2115f29c74994e2dbd6c8919a0bca0a039d376ca
 
+# add resource form for button on homepage
+https://github.com/jaredcohe/edu/commit/43fd5da774228f5bf72a22d2c3adadcbd25af0f1
+
 xxx
 
-# viewings table, if user has visited, gray out the tutorial
+# add to resource boxes a link to go to the external resource with target blank, add number of reviews, add average score
 # add keywords and other stuff to card
+
+# viewings table, if user has visited, gray out the tutorial
 # put a mark on the ones that are syllabi
+# add todo and done
 # menu on mouseover card to add to-do
 # get rid of search button?
-# add to resource boxes a link to go to the external resource with target blank, add number of reviews, add average score
 # add admin signoff on each resource, integer for stage
 # search should find substring in URL, and provider
 # make it look nice

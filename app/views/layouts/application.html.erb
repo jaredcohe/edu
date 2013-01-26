@@ -11,7 +11,7 @@
 
   <div class="navbar navbar-inverse">
     <div class="navbar-inner">
-      <a class="brand" href="#">Bedu</a>
+      <%= link_to 'EDU', :root, :class => "brand" %>
       <ul class="nav">
         <li class="<%= ('active' if controller.controller_name == 'resources' && controller.action_name == 'home') %>"><%= link_to "Home", :root %></li>
         <% if current_user %>
@@ -31,14 +31,15 @@
         <div class="modal-body">
           <% if current_user %>
             <%= render 'resources/small_form' %>
+            </div>
             <div class="modal-footer">
               <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
               <button class="btn btn-primary">Save changes</button>
             </div>
           <% else %>
             <p><%= link_to "Log in", login_path %> to add a resource.</p>
+            </div>
           <% end %>
-        </div>
       </div>
     </div>
   </div>

@@ -37,7 +37,7 @@ $white: #FFFFFF;
 }
 
 div {
-  border: 1px black solid;
+  // border: 1px black solid;
 }
 
 body {
@@ -50,6 +50,12 @@ body {
 
 #search_header, #results, #search_field, #header_image, #header_image_container, .text-center {
   text-align: center;
+}
+
+#search_field {
+  height: 40px;
+  font-size: 24px;
+  width: 400px;
 }
 
 #layout_top_right {

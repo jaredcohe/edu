@@ -326,11 +326,15 @@ add lib/tasks/add_providers.rake
 heroku run rake addproviderstorailscasts
 
 # auto focus on search at home
+- edit application.js file
+
+# search button bigger, remove header image
+
 
 -----
 
 xxx
-# search button bigger
+
 # add reviews
 # add click on each resource to get to the resource page
 

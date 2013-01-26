@@ -345,6 +345,10 @@ xxx
 
 xxx
 
+# rake task to add providers
+http://railscasts.com/episodes/66-custom-rake-tasks
+
+
 # add live validation for url in create resource and other places
 
 # add link to email that makes the user confirm - "change a field in the database to show the person is confirmed" - end of railscasts 274, that code can be used for this

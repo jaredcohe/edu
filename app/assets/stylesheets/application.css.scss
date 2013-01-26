@@ -37,7 +37,7 @@ $white: #FFFFFF;
 }
 
 div {
-  // border: 1px black solid;
+  border: 1px black solid;
 }
 
 body {
@@ -56,6 +56,38 @@ body {
   float: right;
 }
 
+.border {
+  border: 1px solid $gray3;
+}
+
+.background-gray2 {
+  background: $gray2;
+}
+
+.font14 {
+  font-size: 14px;
+}
+
+.font12 {
+  font-size: 12px;
+}
+
+.font10 {
+  font-size: 10px;
+}
+
+.height100 {
+  height: 100px;
+}
+
+.radius4 {
+  @include rounded-corners(4px);
+}
+
+.margin4 {
+  margin: 4px;
+}
+
 #header_image {
   //background-image: url("/assets/images/profile.jpg");
   //background-repeat: no-repeat;
@@ -63,6 +95,10 @@ body {
   height: 80px;
   margin-bottom: 25px;
   width: 600px;
+}
+
+.text-align-left {
+  text-align: left;
 }
 
 .resource_boxes {

@@ -6,14 +6,21 @@
     <% end %>
   </div>
 
-  <div id='resource_boxes_container' class='row-fluid'>
-    <%- @resources.each do |resource| %>
-      <div class='resource_boxes'>
-        <div class='row-fluid'><%= link_to truncate(resource.title_for_view, :length => 60), resource, :class => 'resource_link', :target => '_blank' %></div>
-        <div class='row-fluid'><%= truncate(resource.description_for_view, :length => resource.description_length) %></div>
+  <%- @resources.each do |resource| %>
+    <div class='row-fluid'>
+      <div class='span1'></div>
+      <div class='span11'>
+        <div class='row-fluid background-gray2 border margin4 height100 radius4'>
+          <div class='span3 font14'>
+            <%= link_to truncate(resource.title_for_view, :length => 90), resource, :class => 'resource_link', :target => '_blank' %>
+          </div>
+          <div class='span5 text-align-left font12'><%= truncate(resource.description_for_view, :length => 180) %>
+          </div>
+          <div class='span4 font12'><%= truncate(resource.provider, :length => 80) %></div>
+        </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
 
 

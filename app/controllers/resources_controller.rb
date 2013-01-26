@@ -17,8 +17,6 @@ class ResourcesController < ApplicationController
       else
         resource[:description_for_view] = resource.description_from_source
       end
-      
-      resource[:description_length] = 150 - resource[:title_for_view].length
     end
   end
 

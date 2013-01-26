@@ -332,54 +332,35 @@ https://github.com/jaredcohe/edu/commit/0c6e979184d953f117221b9cc8a86e4180671e97
 # search button and text field bigger, remove header image
 https://github.com/jaredcohe/edu/commit/30378c66ca36b9c08ebb4dd1fe7570b327c0d47f
 
-# add click on each resource to get to the resource page
+# add clickable to click on each resource to get to the resource page
+https://github.com/jaredcohe/edu/commit/c4248a070bc145412feb025a60e85b39983f446a
 
-
-
------
+# add reviews to resource show page
 
 xxx
 
-# add reviews
-
-
 # viewings table, if user has visited, gray out the tutorial
-# add keywords to card
+# add keywords and other stuff to card
 # put a mark on the ones that are syllabi
 # menu on mouseover card to add to-do
 # get rid of search button?
-
 # add to resource boxes a link to go to the external resource with target blank
-
 # add admin signoff on each resource, integer for stage
 # search should find substring in URL, and provider
-
 # make it look nice
-
 # add other URLs table to avoid dupes
-# resource_id, url
-
+...resource_id, url
 # add live validation for url in create resource and other places
-
 # add link to email that makes the user confirm - "change a field in the database to show the person is confirmed" - end of railscasts 274, that code can be used for this
-
 # add BML
 
 fix tagging
 http://railscasts.com/episodes/382-tagging
 
-# make user ID in collection a hidden field
-# collection#create work properly, scrape resource
-
 # improve search
 .order should be better
 .search of "r" and "R" should return R programming and not everything with an R
-
-#add reviews of collections and resources
-.user_id, resource_id
-
 # add ability to drag and drop collections
-
 #add todo list
 
 heroku custom domain

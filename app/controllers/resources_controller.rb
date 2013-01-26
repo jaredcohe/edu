@@ -31,6 +31,8 @@ class ResourcesController < ApplicationController
     @resource[:title_to_show] = @resource.title_from_user? ? @resource.title_from_user : @resource.title_from_source
     @resource[:description_to_show] = @resource.description_from_user? ? @resource.description_from_user : @resource.description_from_source
     @resource[:keywords_to_show] = @resource.keywords_from_user? ? @resource.keywords_from_user : @resource.keywords_from_source
+    @reviews = @resource.reviews.order(:id).reverse_order
+    @review = @resource.reviews.new
   end
 
   # GET /resources/new

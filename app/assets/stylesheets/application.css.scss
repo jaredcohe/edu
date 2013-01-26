@@ -131,3 +131,16 @@ body {
 .clickable {
   cursor: pointer;
 }
+
+#review_body_field {
+  height: 80px;
+  width: 300px;
+}
+
+#review_score_field {
+  width: 10px;
+}
+
+#review_title_field {
+  width: 160px;
+}

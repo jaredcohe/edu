@@ -5,8 +5,22 @@
 <% end %>
 <div class='row'>Keywords: <%= @resource.keywords_to_show %></div>
 
-<div class='row'>
-  <%= link_to 'Review', new_review_path(:resource_id => @resource.id) %> |
-  <%= link_to 'Edit', edit_resource_path(@resource) %> |
-  <%= link_to 'Back', resources_path %>
-</div>
+<%= render 'reviews/form' %>
+
+<% @reviews.each do |review| %>
+  <% if review.id? %>
+    <div class='row-fluid'>
+      <div class='span1'></div>
+      <div class='span11'>
+        <div class='row-fluid background-gray2 border margin4 height100 radius4'>
+          <div class='span3 font14'>
+            <%= truncate(review.title, :length => 90) %>
+          </div>
+          <div class='span5 text-align-left font12'><%= truncate(review.body, :length => 180) %>
+          </div>
+          <div class='span4 font12'><%= review.score %></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

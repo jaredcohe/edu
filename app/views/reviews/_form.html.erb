@@ -11,22 +11,21 @@
     </div>
   <% end %>
 
-  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.hidden_field :resource_id %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_area :title, :size => "40x2" %>
+  <div class='row-fluid'>
+    <div class='span1'></div>
+    <div class='span11'>
+      <div class='row-fluid background-gray2 border margin4 height100 radius4'>
+        <div class='span3 font14'>
+          <%= f.text_area :title, :size => "40x2", :id => 'review_title_field', :placeholder => 'My Review Title' %>
+        </div>
+        <div class='span5 text-align-left font12'><%= f.text_area :body, :id => 'review_body_field', :placeholder => 'I loved this! It makes me happy!' %>
+        </div>
+        <div class='span4 font12 pull-right'><%= f.number_field :score, :id => 'review_score_field', :placeholder => '1-5' %><%= f.submit %></div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :score %><br />
-    <%= f.number_field :score %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

@@ -1,5 +1,5 @@
 <%= form_tag resources_path, :method => 'post', :id => 'resources_create', :class => 'navbar-search pull-right' do %>
-  <%= text_field_tag :url_or_title, params[:url_or_title], :placeholder => 'Add resource: URL', :class => "search-query" %>
+  <%= text_field_tag :url_or_title, params[:url_or_title], :placeholder => 'Resource URL', :class => "search-query" %>
   <%= submit_tag 'Submit', :id => 'small_form_submit' %>
   <%= hidden_field_tag :user_id, current_user ? current_user.id : '' %>
 <% end %>

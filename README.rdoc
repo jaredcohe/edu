@@ -343,6 +343,7 @@ https://github.com/jaredcohe/edu/commit/43fd5da774228f5bf72a22d2c3adadcbd25af0f1
 
 xxx
 
+
 # add to resource boxes a link to go to the external resource with target blank, add number of reviews, add average score
 # add keywords and other stuff to card
 

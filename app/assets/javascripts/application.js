@@ -33,10 +33,21 @@ $(function() {
 });
 */
 
+function clickable() {
+  jQuery(".clickable").click(function() {
+    if (jQuery(this).find("a").length > 0) {
+      window.open(jQuery(this).find("a").attr("href"));
+      console.log('hihih');
+    };
+    return false;
+  });
+}
+
 // AJAX for search
+// includes running of clickable function to open show function from home window resource boxes
 $(function() {
 	$("#resources_search input").keyup(function() {
-	  $.get($("#resources_search").attr("action"), $("#resources_search").serialize(), null, "script");
+	  $.get($("#resources_search").attr("action"), $("#resources_search").serialize(), null, "script").always(function() { clickable(); });
 	  return false;
 	});
 });
@@ -109,9 +120,7 @@ jQuery(function(){
   });
 });
 
-
-//clickable function to open show function from home window resource boxes
-jQuery(function(){
+jQuery(function clickable(){
   jQuery(".clickable").click(function() {
     if (jQuery(this).find("a").length > 0) {
       window.location = jQuery(this).find("a").attr("href");

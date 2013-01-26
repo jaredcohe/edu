@@ -5,7 +5,14 @@
 <% end %>
 <div class='row'>Keywords: <%= @resource.keywords_to_show %></div>
 
-<%= render 'reviews/form' %>
+<% if current_user %>
+  <%= render 'reviews/form' %>
+<% else %>
+  <div class='row-fluid'>
+    <div class='span1'></div>
+    <div class='span2 offset8'>Sign up or log in to leave a review.</div>
+  </div>
+<% end %>
 
 <% @reviews.each do |review| %>
   <% if review.id? %>

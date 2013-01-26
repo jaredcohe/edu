@@ -53,7 +53,7 @@ function add_lesson_to_log (link, user_id, lesson_plantation_id) {
       var request = $.ajax({
         type: "POST",
         url: "/logs",
-        data: { log : { user_id : user_id, lesson_plantation_id: lesson_plantation_id, status : "1" } }
+        data: { log : { user_id : user_id, lesson_plantation_idn_id: lesson_plantation_id, status : "1" } }
       });
       request.done(function() {
         // xxx - make this a notice, not alert
@@ -67,6 +67,10 @@ function add_lesson_to_log (link, user_id, lesson_plantation_id) {
       //alert("Log in or create account to save item to to-do list.");
     };
 }
+
+$(function() {
+	$("#search_field").focus();
+});
 
 function add_knowledge_to_log (link, user_id, knowledge_id) {
   //http://api.jquery.com/jQuery.ajax/

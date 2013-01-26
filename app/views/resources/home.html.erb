@@ -2,7 +2,7 @@
 <div class='row-fluid'>
   <div id='search_header' class='span12'>
     <%= form_tag search_path, :method => 'get', :id => "resources_search" do %>
-      <%= text_field_tag :search, params[:search], :placeholder => "search for resource ..." %><br />
+      <%= text_field_tag :search, params[:search], :placeholder => "search for resource ...", :id => 'search_field' %><br />
       <%= submit_tag "Search" %>
     <% end %>
   </div>

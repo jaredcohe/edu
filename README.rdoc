@@ -320,12 +320,19 @@ rake db:migrate
 ==  AddProviderToResource: migrated (0.2050s) =================================
 add provider field to resource form
 
+# rake task to add providers
+http://railscasts.com/episodes/66-custom-rake-tasks
+add lib/tasks/add_providers.rake
+heroku run rake addproviderstorailscasts
+
+# auto focus on search at home
 
 -----
 
 xxx
-
-# auto focus on search at home
+# search button bigger
+# add reviews
+# add click on each resource to get to the resource page
 
 # viewings table, if user has visited, gray out the tutorial
 # add keywords to card
@@ -342,12 +349,6 @@ xxx
 
 # add other URLs table to avoid dupes
 # resource_id, url
-
-xxx
-
-# rake task to add providers
-http://railscasts.com/episodes/66-custom-rake-tasks
-
 
 # add live validation for url in create resource and other places
 

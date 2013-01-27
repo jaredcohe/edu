@@ -341,8 +341,10 @@ https://github.com/jaredcohe/edu/commit/2115f29c74994e2dbd6c8919a0bca0a039d376ca
 # add resource form for button on homepage
 https://github.com/jaredcohe/edu/commit/43fd5da774228f5bf72a22d2c3adadcbd25af0f1
 
-xxx
+# clickable callback so it still works after ajax search
+https://github.com/jaredcohe/edu/commit/75560f5cc3f2b9cde45db5f35a3a1c89737ede6c
 
+xxx
 
 # add to resource boxes a link to go to the external resource with target blank, add number of reviews, add average score
 # add keywords and other stuff to card

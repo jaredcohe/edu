@@ -7,19 +7,20 @@
   </div>
 
   <%- @resources.each do |resource| %>
-    <div class='row-fluid'>
-      <div class='span1'></div>
-      <div class='span11'>
-        <div class='row-fluid background-gray2 border margin4 height100 radius4 clickable'>
-          <div class='span3 font14'>
-            <%= link_to truncate(resource.title_for_view, :length => 90), resource, :class => 'resource_link', :target => '_blank' %>
+        <div class='row-fluid background-gray2 border margin4 height100 radius4 clickable overflowhidden'>
+          <div class='span4'>
+            <div class='font14 paddingsides6 overflowhidden' id='resource_title'>
+            <%= link_to "#{truncate(resource.title_for_view, :length => 80)}", resource, :class => 'resource_link', :target => '_blank' %>
+            </div>
+            <div id='resource_provider' class='font12 paddingsides8'>
+              <% if resource.provider? %>
+                <%= truncate(resource.provider, :length => 25) %>
+              <% end %>
+            </div>
           </div>
           <div class='span5 text-align-left font12'><%= truncate(resource.description_for_view, :length => 180) %>
           </div>
-          <div class='span4 font12'><%= truncate(resource.provider, :length => 80) %></div>
         </div>
-      </div>
-    </div>
   <% end %>
 </div>
 

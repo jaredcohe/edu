@@ -37,7 +37,7 @@ $white: #FFFFFF;
 }
 
 div {
-  // border: 1px black solid;
+  //border: 1px black solid;
 }
 
 body {
@@ -94,6 +94,11 @@ body {
   margin: 4px;
 }
 
+.paddingsides8 {
+  padding: 2px 8px;
+  overflow: hidden;
+}
+
 .margin-bottom20 {
   margin-bottom: 20px;
 }
@@ -109,6 +114,10 @@ body {
 
 .text-align-left {
   text-align: left;
+}
+
+.align-bottom {
+  vertical-align: bottom;
 }
 
 .resource_boxes {
@@ -147,4 +156,20 @@ body {
 
 #review_title_field {
   width: 160px;
+}
+
+#resource_title {
+  height: 72px;
+}
+
+#resource_provider {
+  height: 20px;
+}
+
+.paddingsides6 {
+  padding: 0px 6px;
+}
+
+.overflowhidden {
+  overflow: hidden;
 }

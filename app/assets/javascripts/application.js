@@ -36,7 +36,7 @@ $(function() {
 function clickable() {
   jQuery(".clickable").click(function() {
     if (jQuery(this).find("a").length > 0) {
-      window.open(jQuery(this).find("a").attr("href"));
+      window.location = (jQuery(this).find("a").attr("href"));
       console.log('hihih');
     };
     return false;

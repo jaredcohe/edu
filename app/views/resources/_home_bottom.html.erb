@@ -7,20 +7,30 @@
   </div>
 
   <%- @resources.each do |resource| %>
-        <div class='row-fluid background-gray2 border margin4 height100 radius4 clickable overflowhidden'>
-          <div class='span4'>
-            <div class='font14 paddingsides6 overflowhidden' id='resource_title'>
-            <%= link_to "#{truncate(resource.title_for_view, :length => 80)}", resource, :class => 'resource_link', :target => '_blank' %>
-            </div>
-            <div id='resource_provider' class='font12 paddingsides8'>
-              <% if resource.provider? %>
-                <%= truncate(resource.provider, :length => 25) %>
-              <% end %>
-            </div>
-          </div>
-          <div class='span5 text-align-left font12'><%= truncate(resource.description_for_view, :length => 180) %>
-          </div>
+    <div class='row-fluid background-gray2 border margin4 height100 radius4 clickable overflowhidden'>
+      <div class='span4'>
+        <div class='font14 paddingsides6 overflowhidden' id='resource_title'>
+        <%= link_to "#{truncate(resource.title_for_view, :length => 80)}", resource, :class => 'resource_link', :target => '_blank' %>
         </div>
+        <div id='resource_provider' class='font12 paddingsides8'>
+          <% if resource.provider? %>
+            <%= truncate(resource.provider, :length => 25) %>
+          <% end %>
+        </div>
+      </div>
+      <div class='span5 text-align-left font12'><%= truncate(resource.description_for_view, :length => 180) %>
+      </div>
+      <div class='span3 font12'>
+        <div>Reviews: <%= resource.reviews.length %></div>
+        <div>Average Score: 
+          <% if resource.reviews.length > 0 %>
+            <%= resource.reviews.collect(&:score).sum.to_f / resource.reviews.length %>
+          <% else %>
+            NA
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
 

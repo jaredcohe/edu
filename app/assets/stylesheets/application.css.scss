@@ -37,7 +37,7 @@ $white: #FFFFFF;
 }
 
 div {
-  border: 1px black solid;
+  //border: 1px black solid;
 }
 
 body {
@@ -172,4 +172,8 @@ body {
 
 .overflowhidden {
   overflow: hidden;
+}
+
+.linktoexternalresource {
+  z-index: 1;
 }

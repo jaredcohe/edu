@@ -11,14 +11,26 @@
 
   <div class="navbar navbar-inverse">
     <div class="navbar-inner">
-      <%= link_to 'EDU', :root, :class => "brand" %>
+      <%= link_to 'SEEDTAP', :root, :class => "brand" %>
       <ul class="nav">
-        <li class="<%= ('active' if controller.controller_name == 'resources' && controller.action_name == 'home') %>"><%= link_to "Home", :root %></li>
+        <li class="<%= ('active' if controller.controller_name == 'resources' && controller.action_name == 'home') %>">
+          <%= link_to :root do %>
+            <i class="icon-home icon-white"></i> Home
+          <% end %>
+        </li>
         <% if current_user %>
-          <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+          <li>
+          <%= link_to logout_path, method: "delete" do %>
+            <i class="icon-off icon-white"></i> Log Out
+          <% end %>
+          </li>
         <% else %>
           <li><%= link_to "Sign Up", signup_path %></li>
-          <li><%= link_to "Log In", login_path %></li>
+          <li>
+            <%= link_to login_path do %>
+              <i class="icon-off icon-white"></i> Log In
+            <% end %>
+          </li>
         <% end %>
       </ul>
       <%= link_to 'Add Resource', '#add_resource', :role => 'button', 'data-toggle' => 'modal', :class => 'btn btn-inverse pull-right' %>

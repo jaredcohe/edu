@@ -344,14 +344,18 @@ https://github.com/jaredcohe/edu/commit/43fd5da774228f5bf72a22d2c3adadcbd25af0f1
 # clickable callback so it still works after ajax search
 https://github.com/jaredcohe/edu/commit/75560f5cc3f2b9cde45db5f35a3a1c89737ede6c
 
+# add to resource boxes a link to go to the external resource with target blank, add number of reviews, add average score
+
 xxx
 
-# add to resource boxes a link to go to the external resource with target blank, add number of reviews, add average score
-# add keywords and other stuff to card
+# add todo and done
+user_resource
+rails g scaffold UserResource user_id:integer, resource_id:integer, status:integer
+status (todo, done, inprogress)
+
 
 # viewings table, if user has visited, gray out the tutorial
 # put a mark on the ones that are syllabi
-# add todo and done
 # menu on mouseover card to add to-do
 # get rid of search button?
 # add admin signoff on each resource, integer for stage

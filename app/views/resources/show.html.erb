@@ -1,9 +1,11 @@
 <div class='row'><h2><%= link_to @resource.title_to_show, @resource.raw_url, :target => '_blank' %></h2></div>
 <div class='row lead'><%= @resource.description_to_show %></div>
-<%- if @resource.provider? %>
+<% if @resource.provider? %>
   <div class='row'>Provider: <%= @resource.provider %></div>
 <% end %>
-<div class='row margin-bottom20'>Keywords: <%= @resource.keywords_to_show %></div>
+<% if @resource.keywords_to_show? %>
+  <div class='row margin-bottom20'>Keywords: <%= @resource.keywords_to_show %></div>
+<% end %>
 <% if current_user %>
   <%= render 'reviews/form' %>
 <% else %>

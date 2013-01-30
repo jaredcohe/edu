@@ -348,6 +348,10 @@ https://github.com/jaredcohe/edu/commit/75560f5cc3f2b9cde45db5f35a3a1c89737ede6c
 
 xxx
 
+# fix login button
+# fix edit page, link should go to external, it should look better, not have all the boxes
+# BML
+
 # add todo and done
 user_resource
 rails g scaffold UserResource user_id:integer, resource_id:integer, status:integer

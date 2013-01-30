@@ -94,7 +94,7 @@ class ResourcesController < ApplicationController
     @resource = Resource.find(params[:id])
 
     if @resource.update_attributes(params[:resource])
-      redirect_to resources_path, notice: 'Resource was successfully updated.'
+      redirect_to :root, notice: 'Resource was successfully updated.'
     else
       render action: "edit"
     end

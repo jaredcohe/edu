@@ -1,4 +1,4 @@
-<%= form_for(@review) do |f| %>
+<%= form_for @review, :html => { :class => 'form-inline' } do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -18,12 +18,10 @@
     <div class='span1'></div>
     <div class='span11'>
       <div class='row-fluid background-gray2 border margin4 height100 radius4'>
-        <div class='span3 font14'>
-          <%= f.text_area :title, :size => "40x2", :id => 'review_title_field', :placeholder => 'My Review Title' %>
-        </div>
-        <div class='span5 text-align-left font12'><%= f.text_area :body, :id => 'review_body_field', :placeholder => 'I loved this! It makes me happy!' %>
-        </div>
-        <div class='span4 font12 pull-right'><%= f.number_field :score, :id => 'review_score_field', :placeholder => '1-5' %><%= f.submit 'Submit' %></div>
+        <%= f.text_area :title, :id => 'review_title_field', :rows => 1, :placeholder => 'My Review Title' %>
+        <%= f.text_area :body, :id => 'review_body_field', :class => 'span6', :rows => 4, :placeholder => 'This was the best/worst...' %>
+        <%= f.select(:score, options_for_select([1,2,3,4,5]), { :include_blank => TRUE }, { :class => 'span1' }) %>
+        <%= f.submit 'Submit' %>
       </div>
     </div>
   </div>

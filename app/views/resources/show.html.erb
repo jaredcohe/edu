@@ -6,6 +6,7 @@
 <% if @resource.keywords_to_show? %>
   <div class='row margin-bottom20'>Keywords: <%= @resource.keywords_to_show %></div>
 <% end %>
+
 <% if current_user %>
   <%= render 'reviews/form' %>
 <% else %>

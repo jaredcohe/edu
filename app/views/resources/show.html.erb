@@ -1,10 +1,14 @@
 <div class='row'><h2><%= link_to @resource.title_to_show, @resource.raw_url, :target => '_blank' %></h2></div>
 <div class='row lead'><%= @resource.description_to_show %></div>
 <% if @resource.provider? %>
-  <div class='row'>Provider: <%= @resource.provider %></div>
+  <div class='row'>By: <%= @resource.provider %></div>
 <% end %>
 <% if @resource.keywords_to_show? %>
   <div class='row margin-bottom20'>Keywords: <%= @resource.keywords_to_show %></div>
+<% end %>
+
+<% if @reviews.count < 1 %>
+  <div class='darkgraytext'>No one has reviewed this resource yet. Be the first!</div>
 <% end %>
 
 <% if current_user %>
@@ -19,7 +23,6 @@
 <% @reviews.each do |review| %>
   <% if review.id? %>
     <div class='row-fluid'>
-      <div class='span1'></div>
       <div class='span11'>
         <div class='row-fluid background-gray2 border margin4 height100 radius4'>
           <div class='span3 font14'>

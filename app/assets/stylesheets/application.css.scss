@@ -155,10 +155,6 @@ body {
   // word-wrap: break-word;
   // word-break: break-all;
   @include rounded-corners(4px);
-  &:hover {
-    background: $gray2;
-    cursor: pointer;
-  }
 }
 
 .bottom_boxes {
@@ -186,6 +182,10 @@ body {
 .resource_title {
   height: 86px;
   overflow: hidden;
+  &:hover {
+    background: $gray2;
+    cursor: pointer;
+  }
 }
 
 #resource_provider {
@@ -210,4 +210,8 @@ body {
 
 .paddingtop8 {
   padding-top: 8px;
+}
+
+.darkgraytext {
+  color: $darkgray;
 }

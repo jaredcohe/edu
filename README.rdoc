@@ -346,6 +346,12 @@ https://github.com/jaredcohe/edu/commit/75560f5cc3f2b9cde45db5f35a3a1c89737ede6c
 
 # add to resource boxes a link to go to the external resource with target blank, add number of reviews, add average score
 
+# curl for logging out
+Started DELETE "/logout" for 127.0.0.1 at 2013-02-10 10:59:23 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"s/WMnHVLmKlz/+PQa2X5Yv9KfU7LvsRsRcx69LECAqA="}
+
+
 xxx
 
 # angellist email layout is good

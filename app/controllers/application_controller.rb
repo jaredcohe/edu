@@ -51,5 +51,5 @@ private
   def authorize
     redirect_to login_url, alert: "Not Authorized" if current_user.nil?
   end
-  
+
 end

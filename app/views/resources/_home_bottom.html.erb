@@ -1,39 +1,38 @@
 <div id='bottom'>
   <div id='results' class='row-fluid'>
-    <div class=''>
     <% if params.include?('search') && params[:search] != '' %>
       <%= "Results: #{@resources.length}" %>
     <% end %>
   </div>
 
   <%- @resources.each do |resource| %>
-    <div class='row-fluid background-gray2 border margin4 height100 radius4 overflowhidden'>
-      <div class='span4 clickable'>
-        <div class='font14 paddingsides6 overflowhidden' id='resource_title'>
-        <%= link_to "#{truncate(resource.title_for_view, :length => 80)}", resource, :class => 'resource_link', :target => '_blank' %>
-        </div>
-        <div id='resource_provider' class='font12 paddingsides8'>
-          <% if resource.provider? %>
-            <%= truncate(resource.provider, :length => 25) %>
-          <% end %>
+    <div class='resource_boxes span3 background-gray2 border margin4 height150 radius4 overflowhidden paddingsides10 paddingtop8'>
+      <div class='clickable font14 resource_title'>
+        <%= link_to "#{truncate(resource.title_for_view, :length => 60)}", resource, :class => 'resource_link text_center', :target => '_blank' %>
+        <br />
+        <div class='font12 resource_description'><%= truncate(resource.description_for_view, :length => resource[:length_of_description_for_view]) %>
         </div>
       </div>
-      <div class='span5 text-align-left font12'><%= truncate(resource.description_for_view, :length => 180) %>
+      <div class='resource_provider'>
+        <% if resource.provider %>
+          By: <%= truncate(resource.provider, :length => 40) %>
+        <% end %>
       </div>
-      <div class='span3 font12'>
-        <div>Reviews: <%= resource.reviews.length %></div>
-        <div>Average Score: 
+      <div class='row-fluid bottom_boxes marginsides12 align_bottom'>
+        <div class='span3 text_center marginsides18'>
+          Reviews<br /><%= resource.reviews.length %>
+        </div>
+        <div class='span3 text_center marginsides18'>Score<br />
           <% if resource.reviews.length > 0 %>
             <%= resource.reviews.collect(&:score).sum.to_f / resource.reviews.length %>
           <% else %>
             NA
           <% end %>
         </div>
-        <div>
+        <div class='span3 text_center marginsides18 margintop12'>
           <%= link_to resource.raw_url, :target => '_blank', :class => 'linktoexternalresource' do %>
             <i class="icon-share"></i>
           <% end %>
-          
         </div>
       </div>
     </div>

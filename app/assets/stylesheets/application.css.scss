@@ -48,7 +48,7 @@ body {
   width: 200px;
 }
 
-#search_header, #results, #search_field, #header_image, #header_image_container, .text-center {
+#search_header, #results, #search_field, #header_image, #header_image_container, .text_center {
   text-align: center;
 }
 
@@ -86,6 +86,14 @@ body {
   height: 100px;
 }
 
+.height120 {
+  height: 120px;
+}
+
+.height150 {
+  height: 150px;
+}
+
 .radius4 {
   @include rounded-corners(4px);
 }
@@ -97,6 +105,14 @@ body {
 .paddingsides8 {
   padding: 2px 8px;
   overflow: hidden;
+}
+
+.marginsides12 {
+  margin: 0px 12px;
+}
+
+.marginsides18 {
+  margin: 0px 18px;
 }
 
 .margin-bottom20 {
@@ -116,8 +132,14 @@ body {
   text-align: left;
 }
 
-.align-bottom {
-  vertical-align: bottom;
+.align_bottom {
+  //vertical-align: bottom;
+  position: absolute;
+  bottom: 0;
+}
+
+.margintop12 {
+  margin-top: 12px;
 }
 
 .resource_boxes {
@@ -127,6 +149,7 @@ body {
   // overflow: hidden;
   // overflow: scroll;
   padding: 8px;
+  position: relative;
   text-align: center;
   width: 160px;
   // word-wrap: break-word;
@@ -138,6 +161,21 @@ body {
   }
 }
 
+.bottom_boxes {
+  color: $darkgray;
+  font-size: 12px;  
+}
+
+.resource_description {
+  line-height: 18px;
+  margin: 8px 0px;
+}
+
+.resource_provider {
+  color: $darkgray;
+  font-size: 12px;
+}
+
 #resource_boxes_container  {
 }
 
@@ -145,8 +183,9 @@ body {
   cursor: pointer;
 }
 
-#resource_title {
-  height: 72px;
+.resource_title {
+  height: 86px;
+  overflow: hidden;
 }
 
 #resource_provider {
@@ -157,10 +196,18 @@ body {
   padding: 0px 6px;
 }
 
+.paddingsides10 {
+  padding: 0px 10px;
+}
+
 .overflowhidden {
   overflow: hidden;
 }
 
 .linktoexternalresource {
   z-index: 1;
+}
+
+.paddingtop8 {
+  padding-top: 8px;
 }

@@ -18,7 +18,7 @@
     <div class='span11'>
       <div class='row-fluid background-gray2 border margin4 height100 radius4'>
         <%= f.text_area :title, :id => 'review_title_field', :rows => 1, :placeholder => 'My Review Title' %>
-        <%= f.text_area :body, :id => 'review_body_field', :class => 'span6', :rows => 4, :placeholder => 'This was the best/worst...' %>
+        <%= f.text_area :body, :id => 'review_body_field', :class => 'span6', :rows => 4, :placeholder => 'This was the best/worst resource because it ...' %>
         <%= f.select(:score, options_for_select([1,2,3,4,5]), { :include_blank => TRUE }, { :class => 'span1' }) %>
         <%= f.submit 'Submit' %>
       </div>

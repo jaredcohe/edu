@@ -354,17 +354,22 @@ Processing by SessionsController#destroy as HTML
 
 xxx
 
-# angellist email layout is good
 
-# fix login button
-# fix edit page, link should go to external, it should look better, not have all the boxes
-# BML
+# style the resources edit page
+.admin v reg
+.reg cant edit scraped data
+.can edit only if youre the creator or an admin
+
+# style the reviews
+.add explanation to scores
+...useless, met expectations, Gift from Above
+
+# sort homepage by score and number of reviews, whether it has providers and description, then by age
 
 # add todo and done
 user_resource
 rails g scaffold UserResource user_id:integer, resource_id:integer, status:integer
 status (todo, done, inprogress)
-
 
 # viewings table, if user has visited, gray out the tutorial
 # put a mark on the ones that are syllabi
@@ -372,12 +377,11 @@ status (todo, done, inprogress)
 # get rid of search button?
 # add admin signoff on each resource, integer for stage
 # search should find substring in URL, and provider
-# make it look nice
 # add other URLs table to avoid dupes
 ...resource_id, url
 # add live validation for url in create resource and other places
 # add link to email that makes the user confirm - "change a field in the database to show the person is confirmed" - end of railscasts 274, that code can be used for this
-# add BML
+# BML
 
 fix tagging
 http://railscasts.com/episodes/382-tagging
@@ -386,7 +390,6 @@ http://railscasts.com/episodes/382-tagging
 .order should be better
 .search of "r" and "R" should return R programming and not everything with an R
 # add ability to drag and drop collections
-#add todo list
 
 heroku custom domain
 heroku addons:add custom_domains
@@ -405,7 +408,6 @@ before pushing to heroku run: bundle exec rake assets:precompile
 .wont scrape coursera
 .https://class.coursera.org/compilers-2012-002/class/index
 #https://class.coursera.org/compilers-2012-002/auth/welcome?type=logout&visiting=%2Fcompilers-2012-002%2Fclass%2Findex
-
 
 #User can create collections by putting in a URL or searching Resources
 http://railscasts.com/episodes/196-nested-model-form-revised
@@ -433,7 +435,6 @@ accepts_nested_attributes_for :resource
 accepts_nested_attributes_for :collection
 
 #add comments to collections, rather than reviews?
-
 
 ------
 Errors, Problems
